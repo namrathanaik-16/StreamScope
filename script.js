@@ -116,6 +116,29 @@ loadButton.addEventListener("click",function(){
         }
     );
 
+    //fragment loading
+    player.on(dashjs.MediaPlayer.events.FRAGMENT_LOADING_ABANDONED,
+        function(event){
+            const request = event.request;
+            addLog("NETWORK","FRAGMENT_LOADING_ABANDONED",
+                {
+                    mediaType:event.mediaType,
+                    fragmentType:request?request.type:null,
+                    segmentIndex:request?request.index:null,
+                    startTime:request?request.startTime:null,
+                    duration:request?request.duration:null,
+                    bandwidth:request?request.bandwidth:null,
+                    retryAttempts:request?request.retryAttempts:null,
+                    bytesLoaded:request && Number.isFinite(request.bytesLoaded)
+                        ?request.bytesLoaded
+                        :null,
+                    url:request?request.url:null,
+                    playbackContext:getPlaybackContext()
+                }
+            );
+        }
+    );
+
 
     //playback listeners
     player.on(dashjs.MediaPlayer.events.PLAYBACK_STARTED,function(){
