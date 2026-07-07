@@ -7,6 +7,7 @@ const logContainer=document.getElementById("logContainer")
 
 //logs collection
 let sessionLogs=[];
+let networkLogs=[];
 function addLog(category,eventName,details={}){  
     const logEntry={
         timestamp:new Date().toISOString(),
@@ -117,9 +118,27 @@ loadButton.addEventListener("click",function(){
     );
 
     //fragment loading
+    //fragment abandoned
     player.on(dashjs.MediaPlayer.events.FRAGMENT_LOADING_ABANDONED,
         function(event){
             const request = event.request;
+            if(request){
+                networkLogs.push({
+                    timestamp:new Date().toISOString(),
+                    status:"abandoned",
+                    mediaType:event.mediaType,
+                    fragmentType:request.type,
+                    segmentIndex:request.index,
+                    startTime:request.startTime,
+                    duration:request.duration,
+                    bandwidth:request.bandwidth,
+                    bytesLoaded:Number.isFinite(request.bytesLoaded)
+                        ?request.bytesLoaded
+                        :null,
+                retryAttempts:request.retryAttempts,
+                url:request.url
+                });
+            }
             addLog("NETWORK","FRAGMENT_LOADING_ABANDONED",
                 {
                     mediaType:event.mediaType,
@@ -138,6 +157,30 @@ loadButton.addEventListener("click",function(){
             );
         }
     );
+
+    //fragment completed
+    player.on(dashjs.MediaPlayer.events.FRAGMENT_LOADING_COMPLETED,
+        function(event){
+            const request=event.request;
+            if(!request) return;
+            const networkEntry={
+                timestamp:new Date().toISOString(),
+                status:"completed",
+                mediaType:event.mediaType,
+                fragmentType:request.type,
+                segmentIndex:request.index,
+                startTime:request.startTime,
+                duration:request.duration,
+                bandwidth:request.bandwidth,
+                bytesLoaded:request.bytesLoaded,
+                retryAttempts:request.retryAttempts,
+                url:request.url
+            };
+            networkLogs.push(networkEntry);
+
+        }
+    );
+    
 
 
     //playback listeners
