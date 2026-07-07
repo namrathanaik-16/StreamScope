@@ -12,7 +12,7 @@
     <p>DASH playback diagnostic tool</p>
     <div>
         <input type="text"
-                id="mpdUrl"\
+                id="mpdUrl"
                 placeholder="Paste MPD URL here">
         <button id="loadButton">
              Load Stream
@@ -31,6 +31,10 @@
         <p>Current Resolution: <span id="resolution">-</span></p>
         <p>Current Bitrate: <span id="bitrate">-</span></p>
         <p>Buffer Level: <span id="bufferLevel">-</span></p>
+    </div>
+    <div id="playbackLogs">
+        <h2>Playback Logs</h2>
+        <div id="logContainer"></div>
     </div>
     <script src="./script.js"></script>
     
