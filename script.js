@@ -181,6 +181,47 @@ loadButton.addEventListener("click",function(){
         }
     );
     
+    //player error
+    player.on(dashjs.MediaPlayer.events.ERROR,
+        function(event){
+            const error=event.error;
+            const request = error && error.data
+                ?error.data.request
+                :null;
+            const response= error && error.data
+                ?error.data.response
+                :null;
+            addLog("ERROR","PLAYER_ERROR",
+                {
+                    code:error?error.code:null,
+                    message:error?error.message:null,
+
+                    request:request
+                        ?{
+                            type:request.type,
+                            mediaType:request.mediaType,
+                            url:request.url,
+                            retryAttempts:request.retryAttempts,
+                            fileLoaderType:request.fileLoaderType
+                        }
+                        :null,
+                        response:response
+                            ?{
+                                status:response.status,
+                                statusText:response.statusText,
+                                redirected:response.redirected,
+                                duration:
+                                    response.resourceTiming &&
+                                    Number.isFinite(response.resourceTiming.duration)
+                                        ?response.resourceTiming.duration
+                                        :null
+                            }
+                            :null,
+                            playbackContext:getPlaybackContext()
+                }
+            );
+        }
+    );
 
 
     //playback listeners
