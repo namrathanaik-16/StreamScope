@@ -89,6 +89,24 @@ loadButton.addEventListener("click",function(){
                 tracks:textTracks
             }
         );
+
+        //audio track logs
+        const audioTracks=player.getTracksFor("audio");
+        addLog(
+            "AUDIO","AUDIO_TRACKS_DETECTED",
+            {
+                count:audioTracks.length,
+                tracks:audioTracks.map(function(track){
+                    return{
+                        language:track.lang,
+                        index:track.index,
+                        codec:track.codec,
+                        mimeType:track.mimeType,
+                        representationCount:track.representationCount
+                    };
+                })
+            }
+        );
     });
 
     //subtitle track change
@@ -114,6 +132,32 @@ loadButton.addEventListener("click",function(){
                     playbackContext:getPlaybackContext()
                 }
             );
+        }
+    );
+
+    //audio track change
+    player.on(dashjs.MediaPlayer.events.TRACK_CHANGE_RENDERED,
+        function(event){
+            if(event.mediaType!=="audio") return;
+            addLog(
+                "AUDIO","AUDIO_TRACK_CHANGED",{
+                    from:event.oldMediaInfo
+                        ?{
+                            language:event.oldMediaInfo.lang,
+                            index:event.oldMediaInfo.index,
+                            codec:event.oldMediaInfo.codec
+                        }
+                        :null,
+                    to:event.newMediaInfo
+                        ?{
+                            language:event.newMediaInfo.lang,
+                            index:event.newMediaInfo.index,
+                            codec:event.newMediaInfo.codec
+                        }
+                        :null,
+                    playbackContext:getPlaybackContext()
+                }
+            );      
         }
     );
 
