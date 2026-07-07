@@ -3,6 +3,7 @@ const mpdUrlInput = document.getElementById("mpdUrl");
 const video = document.getElementById("videoPlayer");
 let player = null;
 let previousRepresentation=null;
+const logContainer=document.getElementById("logContainer")
 
 //logs collection
 let sessionLogs=[];
@@ -16,6 +17,15 @@ function addLog(category,eventName,details={}){
     };
     sessionLogs.push(logEntry);
     console.log("[PLAYBACK LOG]",logEntry);
+    //logs appear in the webpages
+    const logItem=document.createElement("details");
+    const logSummary=document.createElement("summary");
+    logSummary.textContent=`[${category}] ${eventName} | `+`Time:${logEntry.playbackTime.toFixed(2)}s`;
+    const logDetails=document.createElement("pre");
+    logDetails.textContent=JSON.stringify(logEntry,null,2);
+    logItem.appendChild(logSummary);
+    logItem.appendChild(logDetails);
+    logContainer.appendChild(logItem);
 }
 
 //adding more information to the log
