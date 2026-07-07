@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamScope</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.dashjs.org/latest/modern/umd/dash.all.min.js"></script>
+</head>
+<body>
+    <h1>StreamScope</h1>
+    <p>DASH playback diagnostic tool</p>
+    <div>
+        <input type="text"
+                id="mpdUrl"\
+                placeholder="Paste MPD URL here">
+        <button id="loadButton">
+             Load Stream
+        </button>
+    </div>
+    <br>
+    <div id="videoContainer">
+        <video id="videoPlayer"
+                controls
+                width="700"></video>
+        <div id="ttmlRenderingDiv"></div>
+    </div>
+    <div id="diagnostics">
+        <h2>Live diagnostics</h2>
+        <p>Playback State: <span id="playbackState">Not started</span></p>
+        <p>Current Resolution: <span id="resolution">-</span></p>
+        <p>Current Bitrate: <span id="bitrate">-</span></p>
+        <p>Buffer Level: <span id="bufferLevel">-</span></p>
+    </div>
+    <script src="./script.js"></script>
+    
+</body>
+</html>
