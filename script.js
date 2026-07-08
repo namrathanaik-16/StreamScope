@@ -51,6 +51,44 @@ function getPlaybackContext(){
             :null
     };
 }
+ //network summary
+    function getNetworkSummary(){
+        const totalRequests=networkLogs.length;
+        const completedRequests=networkLogs.filter(function(entry){
+            return entry.status==="completed";
+        }).length;
+        const abandonedRequests=networkLogs.filter(function(entry){
+            return entry.status==="abandoned";
+        }).length;
+        const completionRate = totalRequests>0
+            ?(completedRequests/totalRequests )*100
+            :0;
+        let totalBytesDownloaded=0;
+        networkLogs.forEach(function(entry){
+            if(
+                entry.status==="completed" && Number.isFinite(entry.bytesLoaded)
+            ){
+                totalBytesDownloaded+=entry.bytesLoaded;
+            }
+        });
+        const totalMegabytesDownloaded=totalBytesDownloaded/1000000;
+        let totalRetryAttempts=0;
+        networkLogs.forEach(function(entry){
+            if(Number.isFinite(entry.retryAttempts)){
+                totalRetryAttempts+=entry.retryAttempts;
+            }
+        });
+        
+        return{
+            totalRequests:totalRequests,
+            completedRequests:completedRequests,
+            abandonedRequests:abandonedRequests,
+            completionRate:completionRate,
+            totalBytesDownloaded:totalBytesDownloaded,
+            totalMegabytesDownloaded:totalMegabytesDownloaded,
+            totalRetryAttempts:totalRetryAttempts
+        };
+    }
 
 //valid mpd url
 loadButton.addEventListener("click",function(){
@@ -224,6 +262,8 @@ loadButton.addEventListener("click",function(){
 
         }
     );
+
+   
     
     //player error
     player.on(dashjs.MediaPlayer.events.ERROR,
@@ -358,6 +398,20 @@ loadButton.addEventListener("click",function(){
         }
         document.getElementById("bufferLevel").textContent=
             Math.max(0,buffer).toFixed(2)+"sec";
+        const networkSummary = getNetworkSummary();
+        document.getElementById("totalRequests").textContent = 
+            networkSummary.totalRequests;
+        document.getElementById("completedRequests").textContent = 
+            networkSummary.completedRequests;
+        document.getElementById("abandonedRequests").textContent = 
+            networkSummary.abandonedRequests;
+        document.getElementById("completionRate").textContent = 
+            networkSummary.completionRate.toFixed(2) + "%";
+        document.getElementById("dataDownloaded").textContent =
+            networkSummary.totalMegabytesDownloaded.toFixed(2) + "MB";
+        document.getElementById("totalRetries").textContent = 
+            networkSummary.totalRetryAttempts;
+        
     },1000);
         
 });
