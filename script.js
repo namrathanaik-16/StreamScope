@@ -481,6 +481,11 @@ loadButton.addEventListener("click",function(){
             bufferChart.update("none");
         }
 
+        //dropped frames
+        const videoQuality=video.getVideoPlaybackQuality();
+        document.getElementById("droppedFrames").textContent=
+            videoQuality.droppedVideoFrames;
+
         //network summary
         const networkSummary = getNetworkSummary();
         document.getElementById("totalRequests").textContent = 
