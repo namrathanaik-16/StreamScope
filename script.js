@@ -8,6 +8,8 @@ const logContainer=document.getElementById("logContainer")
 //logs collection
 let sessionLogs=[];
 let networkLogs=[];
+let bufferHistory=[];
+let bufferChart=null;
 function addLog(category,eventName,details={}){  
     const logEntry={
         timestamp:new Date().toISOString(),
@@ -89,6 +91,24 @@ function getPlaybackContext(){
             totalRetryAttempts:totalRetryAttempts
         };
     }
+// buffer chart
+const bufferCanvas=document.getElementById("bufferChart");
+bufferChart=new Chart(bufferCanvas,{
+    type:"line",
+    data:{
+        labels:[],
+        datasets:[
+            {
+                label:"Buffer Level(seconds)",
+                data:[],
+                tension:0.6
+            }
+        ]
+    },
+    options:{
+        responsive:true
+    }
+});
 
 //valid mpd url
 loadButton.addEventListener("click",function(){
@@ -398,6 +418,27 @@ loadButton.addEventListener("click",function(){
         }
         document.getElementById("bufferLevel").textContent=
             Math.max(0,buffer).toFixed(2)+"sec";
+        
+        //buffer chart
+        if (!video.paused && !video.ended) {
+            bufferHistory.push({
+            time: video.currentTime,
+            bufferLevel: Math.max(0, buffer)
+        });
+
+            bufferChart.data.labels.push(
+                video.currentTime.toFixed(1)
+            );
+
+            bufferChart.data.datasets[0].data.push(
+                Math.max(0, buffer)
+            );
+            if(bufferChart.data.labels.length>3s0){
+                bufferChart.data.labels.shift();
+                bufferChart.data.datasets[0].data.shift();
+            }
+            bufferChart.update("none");
+        }
         const networkSummary = getNetworkSummary();
         document.getElementById("totalRequests").textContent = 
             networkSummary.totalRequests;
