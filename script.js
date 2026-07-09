@@ -427,11 +427,16 @@ loadButton.addEventListener("click",function(){
     setInterval(function(){
         if(!player) return;
         const currentQuality= player.getCurrentRepresentationForType("video");
+        const currentAudio=player.getCurrentRepresentationForType("audio");
         if(currentQuality){
             document.getElementById("resolution").textContent =
                 currentQuality.width + "x" + currentQuality.height;
             document.getElementById("bitrate").textContent=
                 (currentQuality.bandwidth/1000000).toFixed(2)+"Mbps";
+            document.getElementById("videoCodec").textContent=
+                currentQuality.codecFamily
+                ?currentQuality.codecFamily.toUpperCase()
+                :"-"
             
             //bitrate history
             if(!video.paused && !video.ended){
@@ -451,6 +456,13 @@ loadButton.addEventListener("click",function(){
                 }
                 bitrateChart.update("none");
             }
+        }
+        //audio codec
+        if(currentAudio){
+            document.getElementById("audioCodec").textContent=
+                currentAudio.codecFamily
+                    ?currentAudio.codecFamily.toUpperCase()
+                    :"-";
         }
         let buffer=0;
         if(video.buffered.length>0){
