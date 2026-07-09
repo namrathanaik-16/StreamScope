@@ -10,6 +10,8 @@ let sessionLogs=[];
 let networkLogs=[];
 let bufferHistory=[];
 let bufferChart=null;
+let bitrateHistory=[];
+let bitrateChart=null;
 function addLog(category,eventName,details={}){  
     const logEntry={
         timestamp:new Date().toISOString(),
@@ -102,6 +104,26 @@ bufferChart=new Chart(bufferCanvas,{
                 label:"Buffer Level(seconds)",
                 data:[],
                 tension:0.6
+            }
+        ]
+    },
+    options:{
+        responsive:true
+    }
+});
+
+//bitrate chart
+const bitrateCanvas=document.getElementById("bitrateChart");
+bitrateChart=new Chart(bitrateCanvas,{
+    type:"line",
+    data:{
+        labels:[],
+        datasets:[{
+
+        
+            label:"Bitrate(Mbps)",
+            data:[],
+            tension:0.6
             }
         ]
     },
@@ -410,6 +432,25 @@ loadButton.addEventListener("click",function(){
                 currentQuality.width + "x" + currentQuality.height;
             document.getElementById("bitrate").textContent=
                 (currentQuality.bandwidth/1000000).toFixed(2)+"Mbps";
+            
+            //bitrate history
+            if(!video.paused && !video.ended){
+                bitrateHistory.push({
+                    time:video.currentTime,
+                    bitrate:currentQuality.bandwidth
+                });
+                bitrateChart.data.labels.push(
+                    video.currentTime.toFixed(1)
+                );
+                bitrateChart.data.datasets[0].data.push(
+                    currentQuality.bandwidth/1000000
+                );
+                if(bitrateChart.data.labels.length>30){
+                    bitrateChart.data.labels.shift();
+                    bitrateChart.data.datasets[0].data.shift();
+                }
+                bitrateChart.update("none");
+            }
         }
         let buffer=0;
         if(video.buffered.length>0){
@@ -433,12 +474,14 @@ loadButton.addEventListener("click",function(){
             bufferChart.data.datasets[0].data.push(
                 Math.max(0, buffer)
             );
-            if(bufferChart.data.labels.length>3s0){
+            if(bufferChart.data.labels.length>30){
                 bufferChart.data.labels.shift();
                 bufferChart.data.datasets[0].data.shift();
             }
             bufferChart.update("none");
         }
+
+        //network summary
         const networkSummary = getNetworkSummary();
         document.getElementById("totalRequests").textContent = 
             networkSummary.totalRequests;
