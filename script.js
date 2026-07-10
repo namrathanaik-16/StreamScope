@@ -108,7 +108,8 @@ bufferChart=new Chart(bufferCanvas,{
         ]
     },
     options:{
-        responsive:true
+        responsive:true,
+        maintainAspectRatio:false
     }
 });
 
@@ -128,7 +129,8 @@ bitrateChart=new Chart(bitrateCanvas,{
         ]
     },
     options:{
-        responsive:true
+        responsive:true,
+        maintainAspectRatio:false
     }
 });
 
