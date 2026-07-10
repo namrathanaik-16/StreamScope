@@ -162,6 +162,9 @@ loadButton.addEventListener("click",function(){
 
     // subtitle detection
     player.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED,function(){
+        analyzeBasicManifest();
+        analyzeManifestTracks();
+        analyzeSegmentAndDRM();
         const textTracks=player.getTracksFor("text");
         console.log("Available subtitles tracks:",textTracks);
         addLog(
@@ -518,3 +521,101 @@ loadButton.addEventListener("click",function(){
     },1000);
         
 });
+
+//manifest details
+function analyzeBasicManifest(){
+    const manifest = player.getManifest();
+    if(!manifest){
+        console.log("Manifest data is not available");
+        return;
+    }
+    const mpdType=manifest.type || "static";
+    const duration=Number.isFinite(video.duration)
+        ?video.duration.toFixed(2)+"sec"
+        :"Unknown";
+    const profile = manifest.profiles || "Not specified";
+    const periods = manifest.Period
+        ?manifest.Period.length
+        :0;
+    document.getElementById("mpdType").textContent=
+        mpdType;
+    document.getElementById("mpdDuration").textContent=
+        duration;
+    document.getElementById("dashProfile").textContent=
+        profile;
+    document.getElementById("periodCount").textContent=
+        periods;
+    console.log("Basic Manifest Analysis:",{
+        type:mpdType,
+        duration:duration,
+        profile:profile,
+        periods:periods
+    });
+    
+}
+
+//manifest tracks
+function analyzeManifestTracks(){
+    const videoTracks = player.getTracksFor("video");
+    const audioTracks = player.getTracksFor("audio");
+    document.getElementById("videoAdaptationSets").textContent = 
+        videoTracks.length;
+    document.getElementById("audioAdaptationSets").textContent = 
+        audioTracks.length;
+    if(videoTracks.length>0){
+        const videoTrack=videoTracks[0];
+
+        const resolutions=videoTrack.bitrateList.map(
+            representation=>
+                representation.width + "x" + representation.height
+            
+        );
+        const bitrates = videoTrack.bitrateList.map(
+            representation=>
+                (representation.bandwidth/1000000).toFixed(2)+"Mbps"
+            
+
+        );
+        document.getElementById("availableResolutions").textContent=
+            resolutions.join(", ");
+        document.getElementById("availableBitrates").textContent=
+            bitrates.join(", ");
+        document.getElementById("manifestVideoCodec").textContent=
+            videoTrack.codec || "Not Specified";
+
+
+
+    }
+    if(audioTracks.length>0){
+        document.getElementById("manifestAudioCodec").textContent=
+            audioTracks[0].codec || "Not specified";
+    }
+    console.log("Manifest Track Analysis:",{
+        videoTracks:videoTracks,
+        audioTracks:audioTracks
+    });
+}
+//segment and DRM analze
+function analyzeSegmentAndDRM(){
+    const manifest=player.getManifest();
+    const videoRepresentation=player.getCurrentRepresentationForType("video");
+
+    if(videoRepresentation){
+        document.getElementById("segmentType").textContent=
+            videoRepresentation.segmentInfoType || "Not Specified";
+        document.getElementById("segmentDuration").textContent=
+            videoRepresentation.segmentDuration
+                ?videoRepresentation.segmentDuration.toFixed(2)+ "sec"
+                :"Not Specified";
+    }
+    const manifestText=JSON.stringify(manifest);
+    const drmPresent=
+            manifestText.includes("ContentProtection")||manifestText.includes("contentProtection");
+    document.getElementById("drmPresent").textContent=
+        drmPresent ?"Yes":"No";
+    console.log("Segment and DRM Analysis:",{
+        segmentType:videoRepresentation?.segmentInfoType,
+        segmentDuration:videoRepresentation?.segmentDuration,
+        drmPresent:drmPresent
+    });
+}
