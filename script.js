@@ -324,6 +324,13 @@ loadButton.addEventListener("click",function(){
             const response= error && error.data
                 ?error.data.response
                 :null;
+            const errorInfo={
+                timestamp:new Date().toISOString(),
+                code:error?error.code:null,
+                message:error?error.message:null,
+                playbackTime:video.currentTime,
+                playbackContext:getPlaybackContext()
+            };
             addLog("ERROR","PLAYER_ERROR",
                 {
                     code:error?error.code:null,
@@ -353,6 +360,7 @@ loadButton.addEventListener("click",function(){
                             playbackContext:getPlaybackContext()
                 }
             );
+            playbackSession.errors.push(errorInfo);
         }
     );
 
@@ -399,23 +407,29 @@ loadButton.addEventListener("click",function(){
             if(event.mediaType!=="video")return;
             const currentRepresentation=
                 player.getCurrentRepresentationForType("video");
+            const switchInfo={
+                timestamp:new Date().toISOString(),
+                playbackTime:video.currentTime,
+                from:previousRepresentation,
+                to:currentRepresentation
+                    ?{
+                        id:currentRepresentation.id,
+                        resolution:
+                            currentRepresentation.width + "x" +
+                            currentRepresentation.height,
+                        bitrate:currentRepresentation.bandwidth
+                    }
+                    :null
+            };
             addLog(
                 "QUALITY",
                 "REPRESENTATION_SWITCH",
                 {
-                    from:previousRepresentation,
-                    to:currentRepresentation
-                        ?{
-                            id:currentRepresentation.id,
-                            resolution:
-                                currentRepresentation.width + "x" +
-                                currentRepresentation.height,
-                            bitrate:currentRepresentation.bandwidth
-                        }
-                        :null,
+                    ...switchInfo,
                     playbackContext:getPlaybackContext()
                 }
             );
+            playbackSession.representationSwitches.push(switchInfo);
             if(currentRepresentation){
                 previousRepresentation={
                     id:currentRepresentation.id,
