@@ -3,6 +3,7 @@ const mpdUrlInput = document.getElementById("mpdUrl");
 const video = document.getElementById("videoPlayer");
 let player = null;
 let previousRepresentation=null;
+let playbackSession=null;
 const logContainer=document.getElementById("logContainer")
 
 //logs collection
@@ -145,6 +146,7 @@ loadButton.addEventListener("click",function(){
         alert("Please enter a valid MPD URL");
         return;
     }
+    initializePlaybackSession(mpdUrl);
     if(player){
         player.destroy();
     }
@@ -537,6 +539,13 @@ function analyzeBasicManifest(){
     const periods = manifest.Period
         ?manifest.Period.length
         :0;
+    playbackSession.manifestInfo.basic={
+        mpdType:mpdType,
+        duration:duration,
+        profile:profile,
+        periods:periods
+    };
+
     document.getElementById("mpdType").textContent=
         mpdType;
     document.getElementById("mpdDuration").textContent=
@@ -590,6 +599,24 @@ function analyzeManifestTracks(){
         document.getElementById("manifestAudioCodec").textContent=
             audioTracks[0].codec || "Not specified";
     }
+    playbackSession.manifestInfo.tracks={
+        videoAdaptationSets:videoTracks.length,
+        audioAdaptationSets:audioTracks.length,
+        resolutions:videoTracks.length>0
+            ?videoTracks[0].bitrateList.map(rep=>
+                rep.width + "x" + rep.height)
+            :[],
+        bitrates:videoTracks.length>0
+            ?videoTracks[0].bitrateList.map(rep=>
+                rep.bandwidth)
+            :[],
+        videoCodec:videoTracks.length>0
+            ?videoTracks[0].codec
+            :null,
+        audioCodec:audioTracks.length>0
+            ?audioTracks[0].codec
+            :null
+    };
     console.log("Manifest Track Analysis:",{
         videoTracks:videoTracks,
         audioTracks:audioTracks
@@ -613,9 +640,44 @@ function analyzeSegmentAndDRM(){
             manifestText.includes("ContentProtection")||manifestText.includes("contentProtection");
     document.getElementById("drmPresent").textContent=
         drmPresent ?"Yes":"No";
+    playbackSession.manifestInfo.segments={
+        segmentType:videoRepresentation
+            ?videoRepresentation.segmentInfoType
+            :null,
+        segmentDuration:videoRepresentation
+            ?videoRepresentation.segmentDuration
+            :null,
+        drmPresent:drmPresent
+    };
     console.log("Segment and DRM Analysis:",{
         segmentType:videoRepresentation?.segmentInfoType,
         segmentDuration:videoRepresentation?.segmentDuration,
         drmPresent:drmPresent
     });
+}
+//playback session
+function initializePlaybackSession(mpdUrl){
+    console.log("initializePlaybackSession called")
+    playbackSession={
+        sessionInfo:{
+            sessionId:"session_"+Date.now(),
+            startTime:new Date().toISOString(),
+            endTime:null,
+            mpdUrl:mpdUrl
+
+        },
+        manifestInfo:{
+            basic:{},
+            tracks:{},
+            segments:{}
+        },
+        playbackEvents:sessionLogs ,
+        networkRequests:networkLogs,
+        representationSwitches:[],
+        bufferHistory:bufferHistory,
+        bitrateHistory:bitrateHistory,
+        errors:[],
+        finalStatistics:{}
+    };
+    console.log("Playback Session Initialized:",playbackSession);
 }
