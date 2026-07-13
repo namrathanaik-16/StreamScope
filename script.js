@@ -6,6 +6,7 @@ let previousRepresentation=null;
 let playbackSession=null;
 const logContainer=document.getElementById("logContainer")
 const endSessionButton=document.getElementById("endSessionButton");
+const exportSessionButton = document.getElementById("exportSessionButton");
 
 //logs collection
 let sessionLogs=[];
@@ -783,8 +784,36 @@ endSessionButton.addEventListener("click",function(){
     playbackSession.sessionInfo.endTime=
         new Date().toISOString();
     calculateFinalStatistics();
+    video.pause();
     console.log("Playback Session completed:");
     console.log(playbackSession);
     alert("Playback Session Completed");
 
 })
+function exportPlaybackSession(){
+    if(!playbackSession){
+        alert("No playback session available");
+        return;
+    }
+    const sessionJson=JSON.stringify(playbackSession,null,4);
+    const blob=new Blob(
+        [sessionJson],
+        {
+            type:"application/json"
+        }
+    );
+    const url=URL.createObjectURL(blob);
+    const downloadLink=document.createElement("a");
+    downloadLink.href=url;
+    downloadLink.download=playbackSession.sessionInfo.sessionId+".json";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+}
+exportSessionButton.addEventListener(
+    "click",
+    function(){
+        exportPlaybackSession();
+    }
+);
