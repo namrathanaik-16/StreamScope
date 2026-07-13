@@ -5,6 +5,7 @@ let player = null;
 let previousRepresentation=null;
 let playbackSession=null;
 const logContainer=document.getElementById("logContainer")
+const endSessionButton=document.getElementById("endSessionButton");
 
 //logs collection
 let sessionLogs=[];
@@ -695,3 +696,95 @@ function initializePlaybackSession(mpdUrl){
     };
     console.log("Playback Session Initialized:",playbackSession);
 }
+function calculateFinalStatistics(){
+
+    const bitrateValues = bitrateHistory.map(function(item){
+        return item.bitrate;
+    });
+
+    const bufferValues = bufferHistory.map(function(item){
+        return item.bufferLevel;
+    });
+
+    const averageBitrate =
+        bitrateValues.length > 0
+            ? bitrateValues.reduce(function(sum,value){
+                return sum + value;
+            },0) / bitrateValues.length
+            :0;
+
+    const averageBuffer =
+        bufferValues.length > 0
+            ? bufferValues.reduce(function(sum,value){
+                return sum + value;
+            },0) / bufferValues.length
+            :0;
+
+    const networkSummary = getNetworkSummary();
+
+playbackSession.finalStatistics = {
+
+        playbackDuration:
+            Number(video.currentTime.toFixed(2)),
+
+        averageBitrateMbps:
+            Number((averageBitrate / 1000000).toFixed(2)),
+
+        highestBitrateMbps:
+            bitrateValues.length > 0
+                ? Number((Math.max(...bitrateValues) / 1000000).toFixed(2))
+                :0,
+
+        lowestBitrateMbps:
+            bitrateValues.length > 0
+                ? Number((Math.min(...bitrateValues) / 1000000).toFixed(2))
+                :0,
+
+        averageBufferLevel:
+            Number(averageBuffer.toFixed(2)),
+
+        droppedFrames:
+            video.getVideoPlaybackQuality().droppedVideoFrames,
+
+        playbackEvents:
+            playbackSession.playbackEvents.length,
+
+        representationSwitches:
+            playbackSession.representationSwitches.length,
+
+        networkRequests:
+            networkSummary.totalRequests,
+
+        completedRequests:
+            networkSummary.completedRequests,
+
+        abandonedRequests:
+            networkSummary.abandonedRequests,
+
+        completionRate:
+            Number(networkSummary.completionRate.toFixed(2)),
+
+        dataDownloadedMB:
+            Number(networkSummary.totalMegabytesDownloaded.toFixed(2)),
+
+        retryAttempts:
+            networkSummary.totalRetryAttempts,
+
+        errors:
+            playbackSession.errors.length
+    };
+}
+endSessionButton.addEventListener("click",function(){
+    if(!playbackSession){
+        alert("No active playback session,");
+        return;
+    }
+    console.log(playbackSession)
+    playbackSession.sessionInfo.endTime=
+        new Date().toISOString();
+    calculateFinalStatistics();
+    console.log("Playback Session completed:");
+    console.log(playbackSession);
+    alert("Playback Session Completed");
+
+})
