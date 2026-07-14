@@ -549,7 +549,7 @@ function analyzeBasicManifest(){
     }
     const mpdType=manifest.type || "static";
     const duration=Number.isFinite(video.duration)
-        ?video.duration.toFixed(2)+"sec"
+        ?Math.round(video.duration)+"s"
         :"Unknown";
     const profile = manifest.profiles || "Not specified";
     const periods = manifest.Period
@@ -590,14 +590,16 @@ function analyzeManifestTracks(){
     if(videoTracks.length>0){
         const videoTrack=videoTracks[0];
 
-        const resolutions=videoTrack.bitrateList.map(
-            representation=>
-                representation.width + "x" + representation.height
-            
-        );
+        const resolutions=[
+            ...new Set(
+                videoTrack.bitrateList.map(representation=>
+                    representation.width + "x" + representation.height
+                )
+            )
+        ];
         const bitrates = videoTrack.bitrateList.map(
             representation=>
-                (representation.bandwidth/1000000).toFixed(2)+"Mbps"
+            (representation.bandwidth/1000000).toFixed(1) + " Mbps"
             
 
         );
@@ -605,15 +607,31 @@ function analyzeManifestTracks(){
             resolutions.join(", ");
         document.getElementById("availableBitrates").textContent=
             bitrates.join(", ");
-        document.getElementById("manifestVideoCodec").textContent=
-            videoTrack.codec || "Not Specified";
+        let videoCodec = videoTrack.codec || "Not Specified";
+        if(videoCodec.includes("hev1") || videoCodec.includes(hvc1)){
+            videoCodec="HEVC(H.265)";
+        }
+        else if(videoCodec.includes("avc1")){
+            videoCodec="AVC(H.264)";
+
+        }
+        else if(videoCodec.includes("vp9")){
+            videoCodec="VP9";
+        }
+        document.getElementById("manifestVideoCodec").textContent=videoCodec;
 
 
 
     }
     if(audioTracks.length>0){
-        document.getElementById("manifestAudioCodec").textContent=
-            audioTracks[0].codec || "Not specified";
+        let audioCodec=audioTracks[0].codec || "Not specified";
+        if(audioCodec.includes("mp4a")){
+            audioCodec="AAC";
+        }
+        else if(audioCodec("ec-3")){
+            audioCodec="Dolby Digital Plus";
+        }
+        document.getElementById("manifestAudioCodec").textContent=audioCodec;
     }
     playbackSession.manifestInfo.tracks={
         videoAdaptationSets:videoTracks.length,
@@ -648,7 +666,7 @@ function analyzeSegmentAndDRM(){
             videoRepresentation.segmentInfoType || "Not Specified";
         document.getElementById("segmentDuration").textContent=
             videoRepresentation.segmentDuration
-                ?videoRepresentation.segmentDuration.toFixed(2)+ "sec"
+                ?Math.round(videoRepresentation.segmentDuration)+"s"
                 :"Not Specified";
     }
     const manifestText=JSON.stringify(manifest);

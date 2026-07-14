@@ -8,6 +8,7 @@
     <script src="https://cdn.dashjs.org/latest/modern/umd/dash.all.min.js"></script>
 </head>
 <body>
+    <div class="dashboard">
     <header class="header">
         <div class="header-left">
             <h1>StreamScope</h1>
@@ -38,36 +39,85 @@
     </section>
     <br>
     
-    <div id="videoContainer">
-        <video id="videoPlayer"
-                controls
-                width="700"></video>
-        <div id="ttmlRenderingDiv"></div>
-    </div>
-   
-    <div id="diagnostics">
-        <h2>Live diagnostics</h2>
-        <p>Playback State: <span id="playbackState">Not started</span></p>
-        <p>Current Resolution: <span id="resolution">-</span></p>
-        <p>Current Bitrate: <span id="bitrate">-</span></p>
-        <p>Buffer Level: <span id="bufferLevel">-</span></p>
-    </div>
+    <section class="video-card">
+        <div class="video-header">
+            <h2>Playback Monitor</h2>
+            <span class="video-status">
+                LIVE
+            </span>
 
-    <section class="manifest-analyzer">
-        <h2>Manifest Analyzer</h2>
-        <p>MPD Type: <span id="mpdType">-</span></p>
-        <p>Duration: <span id="mpdDuration">-</span></p>
-        <p>DASH Profile: <span id="dashProfile">-</span></p>
-        <p>Number of Periods: <span id="periodCount">-</span></p>
-        <p>Video Adaptation Sets: <span id="videoAdaptationSets">-</span></p>
-        <p>Audio Adaptation Sets: <span id="audioAdaptationSets">-</span></p>
-        <p>Available Resolutions: <span id="availableResolutions">-</span></p>
-        <p>Available Video Bitrates: <span id="availableBitrates">-</span></p>
-        <p>Video Codec: <span id="manifestVideoCodec">-</span></p>
-        <p>Audio Codec: <span id="manifestAudioCodec">-</span></p>
-        <p>Segment Type: <span id="segmentType">-</span></p>
-        <p>Segment Duration: <span id="segmentDuration">-</span></p>
-        <p>DRM Present: <span id="drmPresent">-</span></p>
+        </div>
+        <div id="VideoContainer">
+            <video id="videoPlayer" controls></video>
+            <div id="ttmlRenderingDiv"></div>
+        </div>
+    </section>
+   
+    <section class="health-section">
+        <h2>Operational Health</h2>
+        <div class="health-grid">
+            <div class="health-card">
+                <h3>Playback</h3>
+                <span id="playbackState">Not Started</span>
+            </div>
+            <div class="health-card">
+                <h3>Resolution</h3>
+                <span id="resolution"></span>
+            </div>
+            <div class="health-card">
+                <h3>Bitrate</h3>
+                <span id="bitrate">-</span>
+            </div>
+            <div class="health-card">
+                <h3>Buffer Level</h3>
+                <span id="bufferLevel">-</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="analytics-section">
+        <h2>Playback Analytics</h2>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Buffer Level</h3>
+                <canvas id="bufferChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Bitrate</h3>
+                <canvas id="bitrateChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="manifest-section">
+        <h2>Manifest Intelligence</h2>
+        <div class="manifest-grid">
+            <div class="manifest-card">
+                <h3>Stream Information</h3>
+                <p>MPD Type <span id="mpdType">-</span></p>
+                <p>Duration <span id="mpdDuration">-</span></p>
+                <p class="hidden-field">Profile <span id="dashProfile"></span></p>
+                <p>Periods <span id="periodCount">-</span></p>
+            </div>
+            <div class="manifest-card">
+                <h3>Video</h3>
+                <p>Codec <span id="manifestVideoCodec">-</span></p>
+                <p>Adaptation Sets <span id="videoAdaptationSets">-</span></p>
+                <p>Resolutions <span id="availableResolutions">-</span></p>
+                <p>Bitrate <span id="availableBitrates">-</span></p>
+            </div>
+            <div class="manifest-card">
+                <h3>Audio</h3>
+                <p>Codec <span id="manifestAudioCodec">-</span></p>
+                <p>Adaptation sets <span id="audioAdaptationSets">-</span></p>
+            </div>
+            <div class="manifest-card">
+                <h3>Segments & DRM</h3>
+                <p>Segment Type <span id="segmentType">-</span></p>
+                <p>Segment Duration <span id="segmentDuration">-</span></p>
+                <p>DRM Present <span id="drmPresent">-</span></p>
+            </div>
+        </div>
     </section>
 
     <div id="networkSummary">
@@ -101,14 +151,7 @@
             <span id="audioCodec">-</span>
         </p>
     </div>
-    <h2>Buffer Level Over Time</h2>
-    <div class="chart-container">
-        <canvas id="bufferChart"></canvas>
-    </div>
-    <h2>Bitrate Over Time</h2>
-    <div class="chart-container">
-        <canvas id="bitrateChart"></canvas>
-    </div>
+    
 
     <div id="playbackLogs">
         <h2>Playback Logs</h2>
@@ -116,6 +159,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./script.js"></script>
+    </div>
     
 </body>
 </html>
