@@ -8,16 +8,34 @@
     <script src="https://cdn.dashjs.org/latest/modern/umd/dash.all.min.js"></script>
 </head>
 <body>
-    <h1>StreamScope</h1>
-    <p>DASH playback diagnostic tool</p>
-    <div>
-        <input type="text"
-                id="mpdUrl"
-                placeholder="Paste MPD URL here">
-        <button id="loadButton">
-             Load Stream
-        </button>
-    </div>
+    <header class="header">
+        <div class="header-left">
+            <h1>StreamScope</h1>
+            <p>Playback Observability Platform</p>
+        </div>
+        <div class="header-right">
+            <div class="session-status">
+                🟢 LIVE SESSION
+            </div>
+            <button id="exportSessionButton">
+                Export Session
+            </button>
+            <button id="endSessionButton">
+                End Session
+            </button>
+        </div>
+    </header>
+    <section class="playback-source">
+        <h2>Playback Source</h2>
+        <div class="source-input">
+            <input type="text"
+                   id="mpdUrl"
+                   placeholder="Paste DASH MPD URL">
+            <button id="loadButton">
+                Analyze Session
+            </button>
+        </div>
+    </section>
     <br>
     
     <div id="videoContainer">
@@ -26,15 +44,7 @@
                 width="700"></video>
         <div id="ttmlRenderingDiv"></div>
     </div>
-    <br><br>
-    <button id="endSessionButton">
-        End Session
-    </button>
-    <br><br>
-    <button id="exportSessionButton">
-        Export Session
-    </button>
-    <br><br>
+   
     <div id="diagnostics">
         <h2>Live diagnostics</h2>
         <p>Playback State: <span id="playbackState">Not started</span></p>
