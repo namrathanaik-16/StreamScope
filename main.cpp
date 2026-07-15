@@ -4,6 +4,40 @@
 using json=nlohmann::json;
 using namespace std;
 
+string getVideoCodecName(const string& codec)
+{
+	if(codec.find("hev1")!=string::npos || codec.find("hvc")!=string::npos)
+	return "HEVC(H.265)";
+
+	if(codec.find("avc1")!=string::npos )
+	return "H.264/AVC";
+
+	if(codec.find("vp09")!=string::npos)
+	return "VP9";
+
+	if(codec.find("av01")!=string::npos)
+	return "AV1";
+
+	return codec;
+}
+string getAudioCodecName(const string& codec)
+{
+	if(codec.find("mp4a")!=string::npos)
+	return "AAC-LC";
+
+	if(codec.find("ec-3")!=string::npos)
+	return "Dolby Digital Plus";
+
+	if(codec.find("ac-3")!=string::npos)
+	return "Dolby Digital";
+
+	if(codec.find("opus")!=string::npos)
+	return "Opus";
+
+	return codec;
+
+}
+
 int main(){
 	ifstream file("playback_session.json");
 	if(!file.is_open())
@@ -15,6 +49,9 @@ int main(){
 	file>>playbackSession;
 	json sessionInfo=playbackSession["sessionInfo"];
 	json finalStats=playbackSession["finalStatistics"];
+	json manifestBasic=playbackSession["manifestInfo"]["basic"];
+	json manifestTracks=playbackSession["manifestInfo"]["tracks"];
+	json manifestSegments=playbackSession["manifestInfo"]["segments"];
 	cout<<"\n";
 	cout<<"=======================================================\n";
 	cout<<"              STREAMSCOPE SESSION REPORT\n";
@@ -32,6 +69,49 @@ int main(){
 	cout<<"Playback Duration        :"
 		<<finalStats["playbackDuration"].get<double>()
 		<<" seconds"<<endl;
+
+	cout<<"\n";
+	cout<<"Manifest Summary\n";
+	cout<<"------------------------------------------------------\n";
+	cout<<"\nBasic Information\n";
+	cout<<"---------------------------\n";
+	cout<<"MPD Type                  :" 
+	    <<manifestBasic["mpdType"]<<endl;
+	cout<<"Duration                  :"
+		<<manifestBasic["duration"]<<endl;
+	cout<<"Periods                   :"
+		<<manifestBasic["periods"]<<endl;
+	cout<<"\nMedia Information\n";
+	cout<<"---------------------------\n";
+	string videoCodec= 
+		manifestTracks["videoCodec"];
+	cout<<"Video Codec                :"
+		<<getVideoCodecName(videoCodec)
+		<<endl;
+	string audioCodec=
+		manifestTracks["audioCodec"];
+	cout<<"Audio Codec                :"
+		<<getAudioCodecName(audioCodec)
+		<<endl;
+	cout<<"Video Adaptation Sets      :"
+		<<manifestTracks["videoAdaptationSets"]<<endl;
+	cout<<"Audio Adaptation Sets      :"
+		<<manifestTracks["audioAdaptationSets"]<<endl;
+	cout<<"Available Resolutions      :"
+		<<manifestTracks["resolutions"].size()<<endl;
+	cout<<"Available Bitrates         :" 
+		<<manifestTracks["bitrates"].size()<<endl;
+	cout<<"\nStreaming Information\n";
+	cout<<"---------------------------\n";
+	cout<<"Segment Type               :"
+		<<manifestSegments["segmentType"].get<string>()<<endl;
+	cout<<"Segment Duration           :"
+		<<manifestSegments["segmentDuration"]<<" sec"<<endl;
+	cout<<"DRM                        :"
+		<<(manifestSegments["drmPresent"].get<bool>()?"Yes":"No")
+		<<endl;
+		
+
 	cout<<"\n";
 	cout<<"Playback Statistics\n";
 	cout<<"------------------------------------------------------\n";
@@ -104,4 +184,32 @@ int main(){
 		cout<<"[OK] No playback errors detected.\n";
 	if(finalStats["droppedFrames"]>0)
 		cout<<"[WARNING] Dropped frames were observed during playback.\n";
+
+	cout<<"\n";
+	cout<<"Representation Switch Analysis\n";
+	cout<<"------------------------------------------------------\n";
+	int count= finalStats["representationSwitches"];
+	string switchFrequency;
+	string adaptationStability;
+	if(count<=2)
+	{
+		switchFrequency="Low";
+		adaptationStability="Stable";
+	}
+	else if(count<=5)
+	{
+		switchFrequency="Moderate";
+		adaptationStability="Acceptable";
+	}
+	else
+	{
+		switchFrequency="High";
+		adaptationStability="Unstable";
+	}
+	cout<<"Total Representation Switches       :"
+		<<count<<endl;
+	cout<<"Switch Frequency                    :"
+		<<switchFrequency<<endl;
+	cout<<"Adaptation Stability                :"
+		<<adaptationStability<<endl;
 	}
