@@ -1,0 +1,3396 @@
+{
+    "sessionInfo": {
+        "sessionId": "session_1783932740100",
+        "startTime": "2026-07-13T08:52:20.100Z",
+        "endTime": "2026-07-13T08:54:09.804Z",
+        "mpdUrl": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/MultiRate.mpd"
+    },
+    "manifestInfo": {
+        "basic": {
+            "mpdType": "static",
+            "duration": "719.00sec",
+            "profile": "urn:mpeg:dash:profile:isoff-live:2011,http://dashif.org/guidelines/dash264",
+            "periods": 1
+        },
+        "tracks": {
+            "videoAdaptationSets": 1,
+            "audioAdaptationSets": 1,
+            "resolutions": [
+                "3840x2160",
+                "3840x2160",
+                "3840x2160"
+            ],
+            "bitrates": [
+                5678742,
+                8308466,
+                10870369
+            ],
+            "videoCodec": "video/mp4;codecs=\"hev1.2.4.L153.90\"",
+            "audioCodec": "audio/mp4;codecs=\"mp4a.40.2\""
+        },
+        "segments": {
+            "segmentType": "SegmentTemplate",
+            "segmentDuration": 1.9992,
+            "drmPresent": false
+        }
+    },
+    "playbackEvents": [
+        {
+            "timestamp": "2026-07-13T08:52:20.126Z",
+            "category": "SESSION",
+            "event": "STREAM_LOADING",
+            "playbackTime": 0,
+            "details": {
+                "mpdUrl": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/MultiRate.mpd"
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.178Z",
+            "category": "QUALITY",
+            "event": "REPRESENTATION_SWITCH",
+            "playbackTime": 0,
+            "details": {
+                "timestamp": "2026-07-13T08:52:20.178Z",
+                "playbackTime": 0,
+                "from": null,
+                "to": null,
+                "playbackContext": {
+                    "paused": true,
+                    "ended": false,
+                    "playbackRate": 1,
+                    "duration": 718.998,
+                    "bufferLevel": 0,
+                    "resolution": null,
+                    "bitrate": null
+                }
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.209Z",
+            "category": "PLAYBACK",
+            "event": "PLAYBACK_STARTED",
+            "playbackTime": 0,
+            "details": {
+                "paused": false,
+                "ended": false,
+                "playbackRate": 1,
+                "duration": 718.998,
+                "bufferLevel": 0,
+                "resolution": "3840x2160",
+                "bitrate": 5678742
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.217Z",
+            "category": "SUBTITLE",
+            "event": "SUBTITLE_TRACKS_DETECTED",
+            "playbackTime": 0,
+            "details": {
+                "count": 0,
+                "tracks": []
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.217Z",
+            "category": "AUDIO",
+            "event": "AUDIO_TRACKS_DETECTED",
+            "playbackTime": 0,
+            "details": {
+                "count": 1,
+                "tracks": [
+                    {
+                        "language": "en",
+                        "index": 1,
+                        "codec": "audio/mp4;codecs=\"mp4a.40.2\"",
+                        "mimeType": "audio/mp4",
+                        "representationCount": 1
+                    }
+                ]
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.230Z",
+            "category": "BUFFER",
+            "event": "BUFFER_LOADED",
+            "playbackTime": 0,
+            "details": {
+                "paused": false,
+                "ended": false,
+                "playbackRate": 1,
+                "duration": 718.998,
+                "bufferLevel": 1.000999,
+                "resolution": "3840x2160",
+                "bitrate": 5678742
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.231Z",
+            "category": "BUFFER",
+            "event": "BUFFER_LOADED",
+            "playbackTime": 0,
+            "details": {
+                "paused": false,
+                "ended": false,
+                "playbackRate": 1,
+                "duration": 718.998,
+                "bufferLevel": 1.000999,
+                "resolution": "3840x2160",
+                "bitrate": 5678742
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.910Z",
+            "category": "PLAYBACK",
+            "event": "PLAYBACK_PLAYING",
+            "playbackTime": 0,
+            "details": {
+                "paused": false,
+                "ended": false,
+                "playbackRate": 1,
+                "duration": 718.998,
+                "bufferLevel": 1.000999,
+                "resolution": "3840x2160",
+                "bitrate": 5678742
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.474Z",
+            "category": "QUALITY",
+            "event": "REPRESENTATION_SWITCH",
+            "playbackTime": 0,
+            "details": {
+                "timestamp": "2026-07-13T08:52:21.474Z",
+                "playbackTime": 0,
+                "from": null,
+                "to": {
+                    "id": "1",
+                    "resolution": "3840x2160",
+                    "bitrate": 5678742
+                },
+                "playbackContext": {
+                    "paused": false,
+                    "ended": false,
+                    "playbackRate": 1,
+                    "duration": 718.998,
+                    "bufferLevel": 3.002999,
+                    "resolution": "3840x2160",
+                    "bitrate": 5678742
+                }
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.324Z",
+            "category": "AUDIO",
+            "event": "AUDIO_TRACK_CHANGED",
+            "playbackTime": 0.226111,
+            "details": {
+                "from": null,
+                "to": {
+                    "language": "en",
+                    "index": 1,
+                    "codec": "audio/mp4;codecs=\"mp4a.40.2\""
+                },
+                "playbackContext": {
+                    "paused": false,
+                    "ended": false,
+                    "playbackRate": 1,
+                    "duration": 718.998,
+                    "bufferLevel": 25.757888,
+                    "resolution": "3840x2160",
+                    "bitrate": 10870369
+                }
+            }
+        },
+        {
+            "timestamp": "2026-07-13T08:54:12.313Z",
+            "category": "PLAYBACK",
+            "event": "PLAYBACK_PAUSED",
+            "playbackTime": 107.704963,
+            "details": {
+                "paused": true,
+                "ended": false,
+                "playbackRate": 1,
+                "duration": 718.998,
+                "bufferLevel": 59.462036,
+                "resolution": "3840x2160",
+                "bitrate": 10870369
+            }
+        }
+    ],
+    "networkRequests": [
+        {
+            "timestamp": "2026-07-13T08:52:20.198Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "InitializationSegment",
+            "segmentIndex": null,
+            "startTime": null,
+            "duration": null,
+            "bandwidth": null,
+            "bytesLoaded": 2006,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_8000k_init.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.201Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "InitializationSegment",
+            "segmentIndex": null,
+            "startTime": null,
+            "duration": null,
+            "bandwidth": null,
+            "bytesLoaded": 841,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_init.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.226Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 0,
+            "startTime": 0,
+            "duration": 1.9992,
+            "bandwidth": 5678742,
+            "bytesLoaded": 18713,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_8000k_1.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.228Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 0,
+            "startTime": 0,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79269,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_1.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:20.248Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 1,
+            "startTime": 1.99998,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80064,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_2.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.464Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 1,
+            "startTime": 1.9992,
+            "duration": 1.9992,
+            "bandwidth": 5678742,
+            "bytesLoaded": 1739341,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_8000k_2.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.488Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "InitializationSegment",
+            "segmentIndex": null,
+            "startTime": null,
+            "duration": null,
+            "bandwidth": null,
+            "bytesLoaded": 2008,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_init.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.499Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 0,
+            "startTime": 0,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 18526,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_1.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.521Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 1,
+            "startTime": 1.9992,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3137945,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_2.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.555Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 2,
+            "startTime": 3.9984,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3381487,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_3.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.595Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 3,
+            "startTime": 5.9976,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3765847,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_4.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.629Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 4,
+            "startTime": 7.9968,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3437194,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_5.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.663Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 5,
+            "startTime": 9.996,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3329256,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_6.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.690Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 6,
+            "startTime": 11.9952,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3428685,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_7.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.718Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 7,
+            "startTime": 13.9944,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 2748895,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_8.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.741Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 8,
+            "startTime": 15.9936,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 2882312,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_9.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.770Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 9,
+            "startTime": 17.9928,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3183501,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_10.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.777Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 2,
+            "startTime": 3.99996,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_3.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.786Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 3,
+            "startTime": 5.99994,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_4.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.793Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 4,
+            "startTime": 7.99992,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_5.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.803Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 5,
+            "startTime": 9.9999,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_6.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.806Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 10,
+            "startTime": 19.992,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3258058,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_11.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.821Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 6,
+            "startTime": 11.99987,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_7.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.833Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 7,
+            "startTime": 13.99985,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_8.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.842Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 8,
+            "startTime": 15.99983,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_9.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.850Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 9,
+            "startTime": 17.99981,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_10.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.854Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 11,
+            "startTime": 21.9912,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3223328,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_12.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.870Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 10,
+            "startTime": 19.99979,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_11.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.878Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 11,
+            "startTime": 21.99977,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_12.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.887Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 12,
+            "startTime": 23.99975,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_13.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.892Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 12,
+            "startTime": 23.9904,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3472320,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_13.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.919Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 13,
+            "startTime": 25.9896,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3481314,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_14.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.947Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 14,
+            "startTime": 27.9888,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3399663,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_15.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.973Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 15,
+            "startTime": 29.988,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 2488733,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_16.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.997Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 16,
+            "startTime": 31.9872,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 2772861,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_17.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.023Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 17,
+            "startTime": 33.9864,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3128946,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_18.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.052Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 18,
+            "startTime": 35.9856,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 2581221,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_19.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.085Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 19,
+            "startTime": 37.9848,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 2373853,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_20.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.113Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 20,
+            "startTime": 39.984,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3044677,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_21.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.145Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 21,
+            "startTime": 41.9832,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3226276,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_22.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.176Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 22,
+            "startTime": 43.9824,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3293701,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_23.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.209Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 23,
+            "startTime": 45.9816,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3213964,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_24.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.241Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 24,
+            "startTime": 47.9808,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3275438,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_25.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.274Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 25,
+            "startTime": 49.98,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3321319,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_26.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.304Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 26,
+            "startTime": 51.9792,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3355247,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_27.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.342Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 27,
+            "startTime": 53.9784,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3419493,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_28.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.379Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 28,
+            "startTime": 55.9776,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3274605,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_29.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.398Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 13,
+            "startTime": 25.99973,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_14.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.411Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 14,
+            "startTime": 27.99971,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_15.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.418Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 29,
+            "startTime": 57.9768,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3515299,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_30.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.428Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 15,
+            "startTime": 29.99969,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_16.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.439Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 16,
+            "startTime": 31.99967,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_17.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.448Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 17,
+            "startTime": 33.99965,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_18.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.457Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 18,
+            "startTime": 35.99963,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_19.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.467Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 19,
+            "startTime": 37.9996,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_20.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.478Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 20,
+            "startTime": 39.99958,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_21.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.489Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 21,
+            "startTime": 41.99956,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_22.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.509Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 22,
+            "startTime": 43.99954,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_23.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.519Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 23,
+            "startTime": 45.99952,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_24.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.532Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 24,
+            "startTime": 47.9995,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_25.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.544Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 25,
+            "startTime": 49.99948,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_26.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.556Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 26,
+            "startTime": 51.99946,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_27.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.566Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 27,
+            "startTime": 53.99944,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_28.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.580Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 28,
+            "startTime": 55.99942,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_29.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.592Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 29,
+            "startTime": 57.9994,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_30.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:22.603Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 30,
+            "startTime": 59.99938,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_31.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:23.478Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 30,
+            "startTime": 59.976,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3351984,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_31.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:24.152Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 31,
+            "startTime": 61.99935,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_32.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:25.558Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 31,
+            "startTime": 61.9752,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3458516,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_32.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:25.693Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 32,
+            "startTime": 63.99933,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_33.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:27.643Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 32,
+            "startTime": 63.9744,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3410055,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_33.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:27.741Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 33,
+            "startTime": 65.99931,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_34.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:29.718Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 33,
+            "startTime": 65.9736,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3398702,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_34.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:30.309Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 34,
+            "startTime": 67.99929,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_35.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:31.791Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 34,
+            "startTime": 67.9728,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3426330,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_35.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:31.847Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 35,
+            "startTime": 69.99927,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_36.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:33.351Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 35,
+            "startTime": 69.972,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3421619,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_36.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:33.893Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 36,
+            "startTime": 71.99925,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_37.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:35.447Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 36,
+            "startTime": 71.9712,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3271747,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_37.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:35.941Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 37,
+            "startTime": 73.99923,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_38.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:37.512Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 37,
+            "startTime": 73.9704,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3456271,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_38.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:38.001Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 38,
+            "startTime": 75.99921,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_39.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:39.609Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 38,
+            "startTime": 75.9696,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3457937,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_39.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:40.049Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 39,
+            "startTime": 77.99919,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_40.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:41.676Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 39,
+            "startTime": 77.9688,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3414870,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_40.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:42.095Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 40,
+            "startTime": 79.99917,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_41.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:43.746Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 40,
+            "startTime": 79.968,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3262658,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_41.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:44.174Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 41,
+            "startTime": 81.99915,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_42.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:45.314Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 41,
+            "startTime": 81.9672,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3479063,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_42.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:45.709Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 42,
+            "startTime": 83.99912,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_43.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:47.404Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 42,
+            "startTime": 83.9664,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3420548,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_43.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:47.755Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 43,
+            "startTime": 85.9991,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_44.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:51.002Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 43,
+            "startTime": 85.9656,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3381235,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_44.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:51.314Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 44,
+            "startTime": 87.99908,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_45.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:53.991Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 44,
+            "startTime": 87.9648,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3391344,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_45.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:56.835Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 45,
+            "startTime": 89.99906,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_46.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:57.348Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 45,
+            "startTime": 89.964,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3427004,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_46.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:57.871Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 46,
+            "startTime": 91.99904,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_47.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:59.562Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 46,
+            "startTime": 91.9632,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3419316,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_47.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:52:59.912Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 47,
+            "startTime": 93.99902,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_48.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:01.101Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 47,
+            "startTime": 93.9624,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3381337,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_48.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:01.165Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 48,
+            "startTime": 95.9616,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3445408,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_49.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:01.443Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 48,
+            "startTime": 95.999,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_49.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:01.458Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 49,
+            "startTime": 97.99898,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_50.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:01.733Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 49,
+            "startTime": 97.9608,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3423182,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_50.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:01.986Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 50,
+            "startTime": 99.99896,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_51.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:03.339Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 50,
+            "startTime": 99.96,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3370033,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_51.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:03.536Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 51,
+            "startTime": 101.99894,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_52.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:05.941Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 51,
+            "startTime": 101.9592,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3409145,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_52.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:06.082Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 52,
+            "startTime": 103.99892,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_53.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:07.533Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 52,
+            "startTime": 103.9584,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3542376,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_53.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:07.672Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 53,
+            "startTime": 105.9989,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_54.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:09.635Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 53,
+            "startTime": 105.9576,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3334270,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_54.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:09.788Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 54,
+            "startTime": 107.99887,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_55.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:13.228Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 54,
+            "startTime": 107.9568,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3258960,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_55.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:13.775Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 55,
+            "startTime": 109.99885,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_56.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:15.009Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 55,
+            "startTime": 109.956,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3369761,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_56.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:15.412Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 56,
+            "startTime": 111.99883,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_57.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:17.085Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 56,
+            "startTime": 111.9552,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3425069,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_57.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:17.525Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 57,
+            "startTime": 113.99881,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_58.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:19.200Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 57,
+            "startTime": 113.9544,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3440928,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_58.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:19.615Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 58,
+            "startTime": 115.99879,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_59.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:21.282Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 58,
+            "startTime": 115.9536,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3395081,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_59.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:21.983Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 59,
+            "startTime": 117.99877,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80202,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_60.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:23.672Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 59,
+            "startTime": 117.9528,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3505854,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_60.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:24.202Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 60,
+            "startTime": 119.99875,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79130,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_61.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:25.615Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 60,
+            "startTime": 119.952,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3296373,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_61.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:25.920Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 61,
+            "startTime": 121.99873,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_62.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:27.733Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 61,
+            "startTime": 121.9512,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3411369,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_62.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:28.111Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 62,
+            "startTime": 123.99871,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_63.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:29.570Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 62,
+            "startTime": 123.9504,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3474731,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_63.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:29.696Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 63,
+            "startTime": 125.99869,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_64.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:31.343Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 63,
+            "startTime": 125.9496,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3378788,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_64.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:31.999Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 64,
+            "startTime": 127.99867,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_65.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:33.539Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 64,
+            "startTime": 127.9488,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3480411,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_65.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:34.088Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 65,
+            "startTime": 129.99865,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_66.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:35.288Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 65,
+            "startTime": 129.948,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3347213,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_66.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:35.881Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 66,
+            "startTime": 131.99863,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_67.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:37.156Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 66,
+            "startTime": 131.9472,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3413022,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_67.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:37.485Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 67,
+            "startTime": 133.9986,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_68.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:39.602Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 67,
+            "startTime": 133.9464,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3282050,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_68.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:40.250Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 68,
+            "startTime": 135.99858,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_69.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:41.692Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 68,
+            "startTime": 135.9456,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3409851,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_69.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:42.465Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 69,
+            "startTime": 137.99856,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_70.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:45.310Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 69,
+            "startTime": 137.9448,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3400405,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_70.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:45.558Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 70,
+            "startTime": 139.99854,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_71.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:48.788Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 70,
+            "startTime": 139.944,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3443125,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_71.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:49.562Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 71,
+            "startTime": 141.99852,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_72.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:52.306Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 71,
+            "startTime": 141.9432,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3390946,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_72.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:52.636Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 72,
+            "startTime": 143.9985,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_73.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:52.744Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 72,
+            "startTime": 143.9424,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3428709,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_73.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:53.060Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 73,
+            "startTime": 145.9416,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3460328,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_74.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:53.183Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 73,
+            "startTime": 145.99848,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_74.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:53.277Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 74,
+            "startTime": 147.99846,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_75.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:53.367Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 74,
+            "startTime": 147.9408,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3431928,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_75.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:53.609Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 75,
+            "startTime": 149.94,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3419888,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_76.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:53.829Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 75,
+            "startTime": 149.99844,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_76.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:53.876Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 76,
+            "startTime": 151.99842,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_77.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:56.743Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 76,
+            "startTime": 151.9392,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3396391,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_77.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:56.968Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 77,
+            "startTime": 153.9984,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_78.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:57.941Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 77,
+            "startTime": 153.9384,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3487436,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_78.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:58.020Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 78,
+            "startTime": 155.99838,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_79.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:53:59.649Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 78,
+            "startTime": 155.9376,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3387845,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_79.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:00.093Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 79,
+            "startTime": 157.99835,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_80.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:01.890Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 79,
+            "startTime": 157.9368,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3461468,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_80.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:02.181Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 80,
+            "startTime": 159.99833,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_81.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:03.582Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 80,
+            "startTime": 159.936,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3350546,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_81.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:03.753Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 81,
+            "startTime": 161.99831,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80092,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_82.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:05.777Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 81,
+            "startTime": 161.9352,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3441367,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_82.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:05.848Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 82,
+            "startTime": 163.99829,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_83.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:07.459Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 82,
+            "startTime": 163.9344,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3421162,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_83.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:07.905Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 83,
+            "startTime": 165.99827,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 80091,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_84.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:09.652Z",
+            "status": "completed",
+            "mediaType": "video",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 83,
+            "startTime": 165.9336,
+            "duration": 1.9992,
+            "bandwidth": 10870369,
+            "bytesLoaded": 3336401,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/video_13520k_84.mp4"
+        },
+        {
+            "timestamp": "2026-07-13T08:54:12.369Z",
+            "status": "completed",
+            "mediaType": "audio",
+            "fragmentType": "MediaSegment",
+            "segmentIndex": 84,
+            "startTime": 167.99825,
+            "duration": 1.9999791666666666,
+            "bandwidth": 319525,
+            "bytesLoaded": 79241,
+            "retryAttempts": 0,
+            "url": "https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/audio_64k_85.mp4"
+        }
+    ],
+    "representationSwitches": [
+        {
+            "timestamp": "2026-07-13T08:52:20.178Z",
+            "playbackTime": 0,
+            "from": null,
+            "to": null
+        },
+        {
+            "timestamp": "2026-07-13T08:52:21.474Z",
+            "playbackTime": 0,
+            "from": null,
+            "to": {
+                "id": "1",
+                "resolution": "3840x2160",
+                "bitrate": 5678742
+            }
+        }
+    ],
+    "bufferHistory": [
+        {
+            "time": 0,
+            "bufferLevel": 1.000999
+        },
+        {
+            "time": 0.030815,
+            "bufferLevel": 25.953184
+        },
+        {
+            "time": 1.033298,
+            "bufferLevel": 58.025701
+        },
+        {
+            "time": 2.038965,
+            "bufferLevel": 59.022034000000005
+        },
+        {
+            "time": 3.031168,
+            "bufferLevel": 58.029831
+        },
+        {
+            "time": 4.035474,
+            "bufferLevel": 59.027525
+        },
+        {
+            "time": 5.034073,
+            "bufferLevel": 58.028926
+        },
+        {
+            "time": 6.032163,
+            "bufferLevel": 59.032836
+        },
+        {
+            "time": 7.034348,
+            "bufferLevel": 58.030651
+        },
+        {
+            "time": 8.031526,
+            "bufferLevel": 59.035472999999996
+        },
+        {
+            "time": 9.03714,
+            "bufferLevel": 58.029858999999995
+        },
+        {
+            "time": 10.032586,
+            "bufferLevel": 59.036413
+        },
+        {
+            "time": 11.034412,
+            "bufferLevel": 58.034587
+        },
+        {
+            "time": 12.032309,
+            "bufferLevel": 59.03869
+        },
+        {
+            "time": 13.044777,
+            "bufferLevel": 58.026222000000004
+        },
+        {
+            "time": 14.032415,
+            "bufferLevel": 59.040583999999996
+        },
+        {
+            "time": 15.045435,
+            "bufferLevel": 58.027564
+        },
+        {
+            "time": 16.031981,
+            "bufferLevel": 59.043018000000004
+        },
+        {
+            "time": 17.036762,
+            "bufferLevel": 58.03823700000001
+        },
+        {
+            "time": 18.033631,
+            "bufferLevel": 59.043368
+        },
+        {
+            "time": 19.031173,
+            "bufferLevel": 58.045826000000005
+        },
+        {
+            "time": 20.031146,
+            "bufferLevel": 59.047852999999996
+        },
+        {
+            "time": 21.042535,
+            "bufferLevel": 58.036463999999995
+        },
+        {
+            "time": 22.044927,
+            "bufferLevel": 59.036072000000004
+        },
+        {
+            "time": 23.037435,
+            "bufferLevel": 58.043564
+        },
+        {
+            "time": 24.042871,
+            "bufferLevel": 59.040127999999996
+        },
+        {
+            "time": 25.03207,
+            "bufferLevel": 58.050929
+        },
+        {
+            "time": 26.042167,
+            "bufferLevel": 59.042832
+        },
+        {
+            "time": 27.034515,
+            "bufferLevel": 58.050484
+        },
+        {
+            "time": 28.031447,
+            "bufferLevel": 57.053551999999996
+        },
+        {
+            "time": 29.034008,
+            "bufferLevel": 58.052991000000006
+        },
+        {
+            "time": 30.037784,
+            "bufferLevel": 57.049215000000004
+        },
+        {
+            "time": 31.035529,
+            "bufferLevel": 56.05147000000001
+        },
+        {
+            "time": 32.03101,
+            "bufferLevel": 57.057989
+        },
+        {
+            "time": 33.044234,
+            "bufferLevel": 56.044765
+        },
+        {
+            "time": 34.042367,
+            "bufferLevel": 55.046632
+        },
+        {
+            "time": 35.036522,
+            "bufferLevel": 54.052477
+        },
+        {
+            "time": 36.034259,
+            "bufferLevel": 55.05674
+        },
+        {
+            "time": 37.030099,
+            "bufferLevel": 54.0609
+        },
+        {
+            "time": 38.0327,
+            "bufferLevel": 55.06029900000001
+        },
+        {
+            "time": 39.030256,
+            "bufferLevel": 56.064743
+        },
+        {
+            "time": 40.045461,
+            "bufferLevel": 59.053538
+        },
+        {
+            "time": 41.036543,
+            "bufferLevel": 58.062456000000005
+        },
+        {
+            "time": 42.038461,
+            "bufferLevel": 59.062538
+        },
+        {
+            "time": 43.040236,
+            "bufferLevel": 58.060763
+        },
+        {
+            "time": 44.029955,
+            "bufferLevel": 59.073043999999996
+        },
+        {
+            "time": 45.036464,
+            "bufferLevel": 58.066534999999995
+        },
+        {
+            "time": 46.034519,
+            "bufferLevel": 59.07048
+        },
+        {
+            "time": 47.035786,
+            "bufferLevel": 58.069213000000005
+        },
+        {
+            "time": 48.032486,
+            "bufferLevel": 59.074513
+        },
+        {
+            "time": 49.043169,
+            "bufferLevel": 58.06383
+        },
+        {
+            "time": 50.034121,
+            "bufferLevel": 57.072878
+        },
+        {
+            "time": 51.041255,
+            "bufferLevel": 56.065744
+        },
+        {
+            "time": 52.031787,
+            "bufferLevel": 57.077211999999996
+        },
+        {
+            "time": 53.032099,
+            "bufferLevel": 58.078900000000004
+        },
+        {
+            "time": 54.029986,
+            "bufferLevel": 57.081013000000006
+        },
+        {
+            "time": 55.03281,
+            "bufferLevel": 58.080189000000004
+        },
+        {
+            "time": 56.030216,
+            "bufferLevel": 57.082783
+        },
+        {
+            "time": 57.033019,
+            "bufferLevel": 56.07998
+        },
+        {
+            "time": 58.033498,
+            "bufferLevel": 57.081500999999996
+        },
+        {
+            "time": 59.039149,
+            "bufferLevel": 56.075849999999996
+        },
+        {
+            "time": 60.030094,
+            "bufferLevel": 57.08690500000001
+        },
+        {
+            "time": 61.033124,
+            "bufferLevel": 56.083875000000006
+        },
+        {
+            "time": 62.029821,
+            "bufferLevel": 57.089178000000004
+        },
+        {
+            "time": 63.039504,
+            "bufferLevel": 56.079495
+        },
+        {
+            "time": 64.041216,
+            "bufferLevel": 57.07978299999999
+        },
+        {
+            "time": 65.032103,
+            "bufferLevel": 56.08889599999999
+        },
+        {
+            "time": 66.032586,
+            "bufferLevel": 57.090413
+        },
+        {
+            "time": 67.030337,
+            "bufferLevel": 56.09266199999999
+        },
+        {
+            "time": 68.032507,
+            "bufferLevel": 57.09249200000001
+        },
+        {
+            "time": 69.031102,
+            "bufferLevel": 56.093897
+        },
+        {
+            "time": 70.032443,
+            "bufferLevel": 57.094556
+        },
+        {
+            "time": 71.029335,
+            "bufferLevel": 56.097663999999995
+        },
+        {
+            "time": 72.032537,
+            "bufferLevel": 57.09646199999999
+        },
+        {
+            "time": 73.035066,
+            "bufferLevel": 56.09393299999999
+        },
+        {
+            "time": 74.029739,
+            "bufferLevel": 57.101259999999996
+        },
+        {
+            "time": 75.034144,
+            "bufferLevel": 56.096855000000005
+        },
+        {
+            "time": 76.039011,
+            "bufferLevel": 57.09398800000001
+        },
+        {
+            "time": 77.035656,
+            "bufferLevel": 56.09734300000001
+        },
+        {
+            "time": 78.037364,
+            "bufferLevel": 57.097635
+        },
+        {
+            "time": 79.032815,
+            "bufferLevel": 56.102183999999994
+        },
+        {
+            "time": 80.039477,
+            "bufferLevel": 57.097522
+        },
+        {
+            "time": 81.030158,
+            "bufferLevel": 56.106841
+        },
+        {
+            "time": 82.042081,
+            "bufferLevel": 55.09491800000001
+        },
+        {
+            "time": 83.039951,
+            "bufferLevel": 54.097048
+        },
+        {
+            "time": 84.03083,
+            "bufferLevel": 55.10816900000002
+        },
+        {
+            "time": 85.042872,
+            "bufferLevel": 54.09612700000001
+        },
+        {
+            "time": 86.030737,
+            "bufferLevel": 53.10826200000001
+        },
+        {
+            "time": 87.030677,
+            "bufferLevel": 54.110322
+        },
+        {
+            "time": 88.033768,
+            "bufferLevel": 53.107231
+        },
+        {
+            "time": 89.044339,
+            "bufferLevel": 52.09666
+        },
+        {
+            "time": 90.031173,
+            "bufferLevel": 51.109826
+        },
+        {
+            "time": 91.030135,
+            "bufferLevel": 54.95386400000001
+        },
+        {
+            "time": 92.033827,
+            "bufferLevel": 59.11717200000001
+        },
+        {
+            "time": 93.046198,
+            "bufferLevel": 58.10480100000001
+        },
+        {
+            "time": 94.044063,
+            "bufferLevel": 57.10693600000002
+        },
+        {
+            "time": 95.031273,
+            "bufferLevel": 58.121725999999995
+        },
+        {
+            "time": 96.04325,
+            "bufferLevel": 59.111749
+        },
+        {
+            "time": 97.042937,
+            "bufferLevel": 58.11206200000001
+        },
+        {
+            "time": 98.036883,
+            "bufferLevel": 59.12011600000001
+        },
+        {
+            "time": 99.030804,
+            "bufferLevel": 58.12619500000001
+        },
+        {
+            "time": 100.039424,
+            "bufferLevel": 59.119575
+        },
+        {
+            "time": 101.042264,
+            "bufferLevel": 58.11673499999999
+        },
+        {
+            "time": 102.030864,
+            "bufferLevel": 59.13013500000001
+        },
+        {
+            "time": 103.037209,
+            "bufferLevel": 58.12379
+        },
+        {
+            "time": 104.041075,
+            "bufferLevel": 59.12192400000001
+        },
+        {
+            "time": 105.031432,
+            "bufferLevel": 58.13156700000002
+        },
+        {
+            "time": 106.03464,
+            "bufferLevel": 59.130359
+        },
+        {
+            "time": 107.030333,
+            "bufferLevel": 58.134665999999996
+        }
+    ],
+    "bitrateHistory": [
+        {
+            "time": 0,
+            "bitrate": 5678742
+        },
+        {
+            "time": 0.030815,
+            "bitrate": 10870369
+        },
+        {
+            "time": 1.033298,
+            "bitrate": 10870369
+        },
+        {
+            "time": 2.038965,
+            "bitrate": 10870369
+        },
+        {
+            "time": 3.031168,
+            "bitrate": 10870369
+        },
+        {
+            "time": 4.035474,
+            "bitrate": 10870369
+        },
+        {
+            "time": 5.034073,
+            "bitrate": 10870369
+        },
+        {
+            "time": 6.032163,
+            "bitrate": 10870369
+        },
+        {
+            "time": 7.034348,
+            "bitrate": 10870369
+        },
+        {
+            "time": 8.031526,
+            "bitrate": 10870369
+        },
+        {
+            "time": 9.03714,
+            "bitrate": 10870369
+        },
+        {
+            "time": 10.032586,
+            "bitrate": 10870369
+        },
+        {
+            "time": 11.034412,
+            "bitrate": 10870369
+        },
+        {
+            "time": 12.032309,
+            "bitrate": 10870369
+        },
+        {
+            "time": 13.044777,
+            "bitrate": 10870369
+        },
+        {
+            "time": 14.032415,
+            "bitrate": 10870369
+        },
+        {
+            "time": 15.045435,
+            "bitrate": 10870369
+        },
+        {
+            "time": 16.031981,
+            "bitrate": 10870369
+        },
+        {
+            "time": 17.036762,
+            "bitrate": 10870369
+        },
+        {
+            "time": 18.033631,
+            "bitrate": 10870369
+        },
+        {
+            "time": 19.031173,
+            "bitrate": 10870369
+        },
+        {
+            "time": 20.031146,
+            "bitrate": 10870369
+        },
+        {
+            "time": 21.042535,
+            "bitrate": 10870369
+        },
+        {
+            "time": 22.044927,
+            "bitrate": 10870369
+        },
+        {
+            "time": 23.037435,
+            "bitrate": 10870369
+        },
+        {
+            "time": 24.042871,
+            "bitrate": 10870369
+        },
+        {
+            "time": 25.03207,
+            "bitrate": 10870369
+        },
+        {
+            "time": 26.042167,
+            "bitrate": 10870369
+        },
+        {
+            "time": 27.034515,
+            "bitrate": 10870369
+        },
+        {
+            "time": 28.031447,
+            "bitrate": 10870369
+        },
+        {
+            "time": 29.034008,
+            "bitrate": 10870369
+        },
+        {
+            "time": 30.037784,
+            "bitrate": 10870369
+        },
+        {
+            "time": 31.035529,
+            "bitrate": 10870369
+        },
+        {
+            "time": 32.03101,
+            "bitrate": 10870369
+        },
+        {
+            "time": 33.044234,
+            "bitrate": 10870369
+        },
+        {
+            "time": 34.042367,
+            "bitrate": 10870369
+        },
+        {
+            "time": 35.036522,
+            "bitrate": 10870369
+        },
+        {
+            "time": 36.034259,
+            "bitrate": 10870369
+        },
+        {
+            "time": 37.030099,
+            "bitrate": 10870369
+        },
+        {
+            "time": 38.0327,
+            "bitrate": 10870369
+        },
+        {
+            "time": 39.030256,
+            "bitrate": 10870369
+        },
+        {
+            "time": 40.045461,
+            "bitrate": 10870369
+        },
+        {
+            "time": 41.036543,
+            "bitrate": 10870369
+        },
+        {
+            "time": 42.038461,
+            "bitrate": 10870369
+        },
+        {
+            "time": 43.040236,
+            "bitrate": 10870369
+        },
+        {
+            "time": 44.029955,
+            "bitrate": 10870369
+        },
+        {
+            "time": 45.036464,
+            "bitrate": 10870369
+        },
+        {
+            "time": 46.034519,
+            "bitrate": 10870369
+        },
+        {
+            "time": 47.035786,
+            "bitrate": 10870369
+        },
+        {
+            "time": 48.032486,
+            "bitrate": 10870369
+        },
+        {
+            "time": 49.043169,
+            "bitrate": 10870369
+        },
+        {
+            "time": 50.034121,
+            "bitrate": 10870369
+        },
+        {
+            "time": 51.041255,
+            "bitrate": 10870369
+        },
+        {
+            "time": 52.031787,
+            "bitrate": 10870369
+        },
+        {
+            "time": 53.032099,
+            "bitrate": 10870369
+        },
+        {
+            "time": 54.029986,
+            "bitrate": 10870369
+        },
+        {
+            "time": 55.03281,
+            "bitrate": 10870369
+        },
+        {
+            "time": 56.030216,
+            "bitrate": 10870369
+        },
+        {
+            "time": 57.033019,
+            "bitrate": 10870369
+        },
+        {
+            "time": 58.033498,
+            "bitrate": 10870369
+        },
+        {
+            "time": 59.039149,
+            "bitrate": 10870369
+        },
+        {
+            "time": 60.030094,
+            "bitrate": 10870369
+        },
+        {
+            "time": 61.033124,
+            "bitrate": 10870369
+        },
+        {
+            "time": 62.029821,
+            "bitrate": 10870369
+        },
+        {
+            "time": 63.039504,
+            "bitrate": 10870369
+        },
+        {
+            "time": 64.041216,
+            "bitrate": 10870369
+        },
+        {
+            "time": 65.032103,
+            "bitrate": 10870369
+        },
+        {
+            "time": 66.032586,
+            "bitrate": 10870369
+        },
+        {
+            "time": 67.030337,
+            "bitrate": 10870369
+        },
+        {
+            "time": 68.032507,
+            "bitrate": 10870369
+        },
+        {
+            "time": 69.031102,
+            "bitrate": 10870369
+        },
+        {
+            "time": 70.032443,
+            "bitrate": 10870369
+        },
+        {
+            "time": 71.029335,
+            "bitrate": 10870369
+        },
+        {
+            "time": 72.032537,
+            "bitrate": 10870369
+        },
+        {
+            "time": 73.035066,
+            "bitrate": 10870369
+        },
+        {
+            "time": 74.029739,
+            "bitrate": 10870369
+        },
+        {
+            "time": 75.034144,
+            "bitrate": 10870369
+        },
+        {
+            "time": 76.039011,
+            "bitrate": 10870369
+        },
+        {
+            "time": 77.035656,
+            "bitrate": 10870369
+        },
+        {
+            "time": 78.037364,
+            "bitrate": 10870369
+        },
+        {
+            "time": 79.032815,
+            "bitrate": 10870369
+        },
+        {
+            "time": 80.039477,
+            "bitrate": 10870369
+        },
+        {
+            "time": 81.030158,
+            "bitrate": 10870369
+        },
+        {
+            "time": 82.042081,
+            "bitrate": 10870369
+        },
+        {
+            "time": 83.039951,
+            "bitrate": 10870369
+        },
+        {
+            "time": 84.03083,
+            "bitrate": 10870369
+        },
+        {
+            "time": 85.042872,
+            "bitrate": 10870369
+        },
+        {
+            "time": 86.030737,
+            "bitrate": 10870369
+        },
+        {
+            "time": 87.030677,
+            "bitrate": 10870369
+        },
+        {
+            "time": 88.033768,
+            "bitrate": 10870369
+        },
+        {
+            "time": 89.044339,
+            "bitrate": 10870369
+        },
+        {
+            "time": 90.031173,
+            "bitrate": 10870369
+        },
+        {
+            "time": 91.030135,
+            "bitrate": 10870369
+        },
+        {
+            "time": 92.033827,
+            "bitrate": 10870369
+        },
+        {
+            "time": 93.046198,
+            "bitrate": 10870369
+        },
+        {
+            "time": 94.044063,
+            "bitrate": 10870369
+        },
+        {
+            "time": 95.031273,
+            "bitrate": 10870369
+        },
+        {
+            "time": 96.04325,
+            "bitrate": 10870369
+        },
+        {
+            "time": 97.042937,
+            "bitrate": 10870369
+        },
+        {
+            "time": 98.036883,
+            "bitrate": 10870369
+        },
+        {
+            "time": 99.030804,
+            "bitrate": 10870369
+        },
+        {
+            "time": 100.039424,
+            "bitrate": 10870369
+        },
+        {
+            "time": 101.042264,
+            "bitrate": 10870369
+        },
+        {
+            "time": 102.030864,
+            "bitrate": 10870369
+        },
+        {
+            "time": 103.037209,
+            "bitrate": 10870369
+        },
+        {
+            "time": 104.041075,
+            "bitrate": 10870369
+        },
+        {
+            "time": 105.031432,
+            "bitrate": 10870369
+        },
+        {
+            "time": 106.03464,
+            "bitrate": 10870369
+        },
+        {
+            "time": 107.030333,
+            "bitrate": 10870369
+        }
+    ],
+    "errors": [],
+    "finalStatistics": {
+        "playbackDuration": 107.7,
+        "averageBitrateMbps": 10.82,
+        "highestBitrateMbps": 10.87,
+        "lowestBitrateMbps": 5.68,
+        "averageBufferLevel": 56.43,
+        "droppedFrames": 18,
+        "playbackEvents": 10,
+        "representationSwitches": 2,
+        "networkRequests": 173,
+        "completedRequests": 173,
+        "abandonedRequests": 0,
+        "completionRate": 100,
+        "dataDownloadedMB": 284.81,
+        "retryAttempts": 0,
+        "errors": 0
+    }
+}
