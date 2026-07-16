@@ -1,4 +1,5 @@
 #include<iostream>
+#include<iomanip>
 #include<fstream>
 #include "json.hpp"
 using json=nlohmann::json;
@@ -76,9 +77,9 @@ int main(){
 	cout<<"\nBasic Information\n";
 	cout<<"---------------------------\n";
 	cout<<"MPD Type                  :" 
-	    <<manifestBasic["mpdType"]<<endl;
+	    <<manifestBasic["mpdType"].get<string>()<<endl;
 	cout<<"Duration                  :"
-		<<manifestBasic["duration"]<<endl;
+		<<manifestBasic["duration"].get<string>()<<endl;
 	cout<<"Periods                   :"
 		<<manifestBasic["periods"]<<endl;
 	cout<<"\nMedia Information\n";
@@ -212,4 +213,40 @@ int main(){
 		<<switchFrequency<<endl;
 	cout<<"Adaptation Stability                :"
 		<<adaptationStability<<endl;
+	
+	cout<<"\n";
+	cout<<"Bitrate Analysis\n";
+	cout<<"-----------------------------------------------------\n";
+	double averageBitrate=finalStats["averageBitrateMbps"];
+	double highestBitrate=finalStats["highestBitrateMbps"];
+	double lowestBitrate=finalStats["lowestBitrateMbps"];
+	double bitrateVariation=highestBitrate-lowestBitrate;
+	double variationPercentage=(bitrateVariation/averageBitrate)*100.0;
+
+	string bitrateStability;
+	if(variationPercentage<15)
+	{
+		bitrateStability="Stable";
+	}
+	else if(variationPercentage<=35)
+	{
+		bitrateStability="Moderate";
+	}
+	else{
+		bitrateStability="Highly Variable";
+	}
+	cout<<"Average Bitrate           :"
+		<<averageBitrate<<"Mbps"<<endl;
+	cout<<"Highest Bitrate           :"
+		<<highestBitrate<<"Mbps"<<endl;
+	cout<<"Lowest Bitrate            :"
+		<<lowestBitrate<<"Mbps"<<endl;
+	cout<<"Bitrate Variation         :"
+		<<bitrateVariation<<"Mbps"<<endl;
+	cout<<"Variation Percentage      :"
+		<<fixed<<setprecision(2)
+		<<variationPercentage<<"%"<<endl;
+	cout<<defaultfloat;
+	cout<<"Bitrate Stability         :"
+		<<bitrateStability<<endl;
 	}
