@@ -53,6 +53,8 @@ int main(){
 	json manifestBasic=playbackSession["manifestInfo"]["basic"];
 	json manifestTracks=playbackSession["manifestInfo"]["tracks"];
 	json manifestSegments=playbackSession["manifestInfo"]["segments"];
+	json playbackEvents=playbackSession["playbackEvents"];
+
 	cout<<"\n";
 	cout<<"=======================================================\n";
 	cout<<"              STREAMSCOPE SESSION REPORT\n";
@@ -249,4 +251,60 @@ int main(){
 	cout<<defaultfloat;
 	cout<<"Bitrate Stability         :"
 		<<bitrateStability<<endl;
+	
+	cout<<"\n";
+	cout<<"Playback Timeline\n";
+	cout<<"-----------------------------------------------------\n";
+	cout<<fixed<<setprecision(2);
+	for(auto &event : playbackEvents)
+	{
+		string eventName=event["event"];
+		double playbackTime=event["playbackTime"];
+
+		if(eventName=="STREAM_LOADING")
+		{
+			cout<<playbackTime<<" s"
+				<<"  Stream Loading"<<endl;
+			
+		}
+		else if(eventName=="PLAYBACK_STARTED")
+		{
+			cout<<playbackTime<<" s"
+				<<"  Playback Started"<<endl;
+		}
+		else if(eventName=="REPRESENTATION_SWITCH")
+		{
+			if (event["details"]["to"].is_null())
+        continue;
+
+        string resolution = event["details"]["to"]["resolution"];
+        double bitrate =
+        event["details"]["to"]["bitrate"].get<double>() / 1000000.0;
+
+        cout << playbackTime << " s"
+             << "    Switched to "
+             << resolution
+             << " ("
+             << fixed << setprecision(2)
+             << bitrate
+             << " Mbps)"
+             << endl;
+		}
+		else if(event=="AUDIO_TRACK_CHANGED")
+		{
+			cout<<playbackTime<<" s"
+				<<"  Audio Track Changed"<<endl;
+		}
+		else if(eventName=="PLAYBACK_PAUSED")
+		{
+			cout<<playbackTime<<" s"
+				<<"  Playback Paused"<<endl;
+		}
+		else if(event=="PLAYBACK_ENDED")
+		{
+			cout<<playbackTime<<" s"
+				<<"  Playback Paused"<<endl;
+		}
+	}
+	cout<<defaultfloat;
 	}
