@@ -166,26 +166,6 @@ SQLite Database Storage
 
 ---
 
-## 📂 Project Structure
-
-```text
-StreamScope
-│
-├── Frontend
-│   ├── HTML
-│   ├── CSS
-│   ├── JavaScript
-│   ├── Dash.js Integration
-│   └── Chart.js Visualizations
-│
-└── Backend
-    ├── C++
-    ├── SQLite
-    ├── JSON Parser
-    └── Playback Analytics Engine
-```
-
----
 
 ## 🔮 Future Enhancements
 
