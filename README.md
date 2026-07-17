@@ -1,318 +1,217 @@
+# 🎥 StreamScope
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Dash.js](https://img.shields.io/badge/Dash.js-000000?style=for-the-badge)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
+
 # StreamScope
 
-StreamScope is a browser-based MPEG-DASH playback diagnostics and analysis tool built to monitor the internal behavior of adaptive video streaming sessions.
+**StreamScope** is a playback observability and analytics platform designed for **MPEG-DASH video streaming**. It combines a real-time monitoring dashboard with a C++ analytics engine to provide comprehensive insights into playback performance, stream quality, and user experience.
 
-The project focuses on playback diagnostics rather than heavy UI design. It provides real-time visibility into playback events, adaptive bitrate behavior, buffering, network requests, media tracks, playback errors, dropped frames, and DASH manifest information.
+The project enables developers and QA engineers to monitor playback sessions, analyze streaming metrics, identify performance issues, and store playback analytics for future analysis.
 
-StreamScope is designed to help understand what happens internally during MPEG-DASH playback and to provide structured diagnostic data that can later be exported, stored, and analyzed.
+---
 
-## Features Implemented
+## ✨ Features
 
-### MPEG-DASH Playback
+### 🎬 Frontend Dashboard
 
-* Load and play MPEG-DASH streams using an MPD URL
-* Adaptive streaming using dash.js
-* Support for multiple video and audio representations
-* TTML subtitle rendering
-* Subtitle and audio track detection
+- MPEG-DASH video playback using Dash.js
+- Real-time playback monitoring
+- Operational health monitoring
+- Manifest Intelligence
+- Playback Timeline
+- Network Diagnostics
+- Buffer level monitoring
+- Bitrate tracking
+- Resolution detection
+- Video & Audio codec detection
+- Buffer-over-Time chart
+- Bitrate-over-Time chart
+- Playback event logging
+- Export playback session as JSON
 
-### Playback Monitoring System
+---
 
-StreamScope listens to important playback events and records them with timestamps, playback time, and additional playback context.
+### ⚙️ Backend Analytics Engine
 
-Events currently monitored include:
+- Playback session JSON parsing
+- Session information analysis
+- Manifest summary generation
+- Playback statistics analysis
+- Network summary generation
+- Playback health score calculation
+- Representation switch analysis
+- Bitrate analysis
+- Playback timeline generation
+- Playback observations and insights
+- SQLite database integration
+- Session storage
+- Session retrieval
 
-* Stream loading
-* Playback started
-* Playback playing
-* Playback paused
-* Playback seeking
-* Playback seeked
-* Playback ended
-* Buffer empty
-* Buffer loaded
-* Video representation switches
-* Subtitle tracks detected
-* Subtitle track changes
-* Audio tracks detected
-* Audio track changes
-* Playback and player errors
+---
 
-Each diagnostic event can include information such as:
+## 🛠️ Tech Stack
 
-* Timestamp
-* Event category
-* Event type
-* Current playback time
-* Current resolution
-* Current bitrate
-* Buffer level
-* Playback state
-* Playback rate
-* Additional event-specific details
+### Frontend
 
-## Live Playback Diagnostics
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Dash.js
+- Chart.js
 
-The dashboard displays real-time playback information including:
+### Backend
 
-* Current video resolution
-* Current bitrate
-* Current buffer level
-* Dropped video frames
-* Video codec
-* Audio codec
+- C++
+- SQLite3
+- nlohmann/json
 
-These metrics update during playback and provide immediate visibility into the current playback state.
+---
 
-## Network Monitoring
+## 📊 Analytics Generated
 
-StreamScope monitors network and fragment requests generated during playback.
+The backend generates detailed playback reports including:
 
-The network diagnostics include:
+- Session Information
+- Manifest Summary
+- Playback Statistics
+- Network Summary
+- Playback Health Score
+- Representation Switch Analysis
+- Bitrate Analysis
+- Playback Timeline
+- Playback Observations
 
-* Total requests
-* Completed requests
-* Abandoned requests
-* Request completion rate
-* Total data downloaded
-* Total retry attempts
+---
 
-The system also records detailed request information that can help investigate segment delivery and network-related playback problems.
+## 🗄️ Database
 
-## Playback Error Logging
+Playback sessions are stored in an SQLite database for future analysis.
 
-Detailed playback and network errors are captured for diagnostics.
+Each stored session contains:
 
-Error information can include:
+- Session Start Time
+- Session End Time
+- Playback Duration
+- Average Bitrate
+- Highest Bitrate
+- Lowest Bitrate
+- Average Buffer Level
+- Dropped Frames
+- Playback Errors
+- Playback Health Score
 
-* Error code
-* Error message
-* Request URL
-* Request type
-* HTTP response details
-* Playback context
-* Additional error information
+---
 
-This helps distinguish between playback failures caused by the player, network requests, media delivery, or other streaming problems.
+## 🚀 Getting Started
 
-## Adaptive Bitrate and Representation Monitoring
+### Frontend
 
-StreamScope records video representation switches during playback.
+1. Host the project using Apache or open it locally.
+2. Enter an MPEG-DASH MPD URL.
+3. Start playback.
+4. Monitor playback analytics in real time.
+5. Export the playback session.
 
-Each representation-switch event can include:
+### Backend
 
-* Previous representation
-* New representation
-* Resolution
-* Bitrate
-* Playback time
-* Buffer level
-* Current playback context
+Compile the backend:
 
-Example:
+```bash
+g++ main.cpp sqlite3.c -o StreamScopeBackend
+```
+
+Run the executable:
+
+```bash
+./StreamScopeBackend
+```
+
+The backend will:
+
+- Read the exported playback session JSON
+- Analyze playback metrics
+- Generate playback reports
+- Store the session in SQLite
+- Display analytics in the console
+
+---
+
+## 🏗️ Project Workflow
 
 ```text
-Category: QUALITY
-Event: REPRESENTATION_SWITCH
-
-From:
-Resolution: 3840x2160
-Bitrate: 5.68 Mbps
-
-To:
-Resolution: 3840x2160
-Bitrate: 10.87 Mbps
+MPEG-DASH Stream
+        │
+        ▼
+Frontend Dashboard
+        │
+Real-Time Playback Monitoring
+        │
+Export Playback Session (JSON)
+        │
+        ▼
+C++ Analytics Engine
+        │
+Playback Analysis
+        │
+Health Score Calculation
+        │
+SQLite Database Storage
 ```
 
-This makes it possible to observe how the adaptive bitrate algorithm reacts to changing playback and network conditions.
+---
 
-## Live Diagnostic Graphs
-
-StreamScope currently provides two real-time graphs:
-
-### Buffer Level Over Time
-
-Displays how the playback buffer changes during the session.
-
-The graph:
-
-* Updates during active playback
-* Stops updating when the video is paused
-* Maintains a rolling display of recent data points
-* Retains the complete buffer history for future session analysis
-
-### Bitrate Over Time
-
-Displays the selected video bitrate throughout playback.
-
-This graph helps visualize:
-
-* Adaptive bitrate changes
-* Representation switching behavior
-* Bitrate stability during playback
-
-The graph also maintains a rolling display while retaining the complete bitrate history.
-
-## DASH Manifest Analyzer
-
-StreamScope analyzes the loaded MPEG-DASH MPD and displays important manifest information.
-
-The analyzer currently extracts:
-
-### Basic MPD Information
-
-* MPD type
-* Media duration
-* DASH profile
-* Number of periods
-
-### Track and Representation Information
-
-* Number of video adaptation sets
-* Number of audio adaptation sets
-* Available video resolutions
-* Available video bitrates
-* Video codec information
-* Audio codec information
-
-### Segment Information
-
-* Segment type
-* Segment duration
-
-### Content Protection
-
-* DRM presence detection
-
-The analyzer automatically refreshes when a different MPD is loaded.
-
-## Diagnostic Log Structure
-
-Playback events are stored as structured JavaScript objects.
-
-Example:
-
-```json
-{
-  "timestamp": "2026-07-09T08:52:37.897Z",
-  "category": "QUALITY",
-  "event": "REPRESENTATION_SWITCH",
-  "playbackTime": 0.25427,
-  "details": {
-    "from": {
-      "resolution": "1920x1080",
-      "bitrate": 2067007
-    },
-    "to": {
-      "resolution": "1920x1080",
-      "bitrate": 2003095
-    }
-  }
-}
-```
-
-This structured approach prepares the playback data for future JSON export and offline analysis.
-
-## How It Works
-
-1. Enter a valid MPEG-DASH `.mpd` URL.
-2. StreamScope initializes the dash.js player.
-3. The MPD is analyzed.
-4. The video begins playback.
-5. Playback, buffer, quality, subtitle, audio, network, and error events are monitored.
-6. Live playback metrics are displayed.
-7. Buffer and bitrate history are visualized using live graphs.
-8. Diagnostic data is stored during the playback session.
-
-## Technologies Used
-
-* HTML
-* CSS
-* JavaScript
-* dash.js
-* Chart.js
-* MPEG-DASH
-* TTML subtitles
-
-## Project Architecture
-
-The current browser-side flow is:
+## 📂 Project Structure
 
 ```text
-MPD URL
-    ↓
-dash.js Player
-    ↓
-Manifest Analysis
-    ↓
-Video Playback
-    ↓
-Playback Event Monitoring
-    ↓
-Network and Error Monitoring
-    ↓
-Live Diagnostics and Graphs
-    ↓
-Structured Session Data
+StreamScope
+│
+├── Frontend
+│   ├── HTML
+│   ├── CSS
+│   ├── JavaScript
+│   ├── Dash.js Integration
+│   └── Chart.js Visualizations
+│
+└── Backend
+    ├── C++
+    ├── SQLite
+    ├── JSON Parser
+    └── Playback Analytics Engine
 ```
 
-The planned complete architecture is:
+---
 
-```text
-Browser / JavaScript
-        ↓
-Playback Session JSON
-        ↓
-C++ Diagnostic Processor
-        ↓
-SQLite3 Database
-        ↓
-Playback Diagnostics
-```
+## 🔮 Future Enhancements
 
-## Current Project Status
+- Automatic Frontend-to-Backend communication using REST APIs
+- Live playback analytics dashboard
+- Historical playback reports
+- Session comparison
+- Trend analysis
+- Advanced playback diagnostics
+- Playback anomaly detection
+- Multi-session analytics dashboard
 
-StreamScope is under active development.
+---
 
-The browser-based playback monitoring and manifest analysis stages are complete for the currently selected features.
+## 👩‍💻 Author
 
-### Next Development Stages
+**Namratha V Naik**
 
-* Central playback session object
-* End Session functionality
-* Final session statistics
-* Complete session JSON export
-* C++ JSON processing application
-* Playback session validation
-* SQLite3 session storage
-* Offline diagnostic rule engine
+Information Science & Engineering Graduate
 
-The future diagnostic engine will identify playback problems such as:
+Frontend Developer • Software Engineer • AI Enthusiast
 
-* Frequent buffering
-* Excessive total stall time
-* Unstable quality switching
-* Repeated buffer depletion
-* Manifest loading failures
-* Network or segment delivery problems
+**GitHub:** https://github.com/namrathanaik-16
 
-## Project Goal
+---
 
-The goal of StreamScope is to build a practical playback diagnostics system that connects browser-based MPEG-DASH monitoring with offline C++ analysis.
+## 📄 License
 
-Rather than only playing video, StreamScope aims to explain what happened during a playback session by collecting structured data about:
-
-* Playback behavior
-* Adaptive bitrate changes
-* Buffer conditions
-* Network requests
-* Playback errors
-* Media tracks
-* Dropped frames
-* Manifest structure
-
-The long-term goal is to turn this information into persistent session history and meaningful diagnostic results.
-
-## Author
-
-Namratha Naik
+This project is intended for educational, internship, and portfolio purposes.
