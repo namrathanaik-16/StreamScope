@@ -1,0 +1,10 @@
+# Compiled files
+*.exe
+*.o
+*.obj
+
+# SQLite database
+*.db
+
+# Temporary files
+*.log
