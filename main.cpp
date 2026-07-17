@@ -1,6 +1,7 @@
 #include<iostream>
 #include<iomanip>
 #include<fstream>
+#include"sqlite3.h"
 #include "json.hpp"
 using json=nlohmann::json;
 using namespace std;
@@ -40,6 +41,50 @@ string getAudioCodecName(const string& codec)
 }
 
 int main(){
+	//database
+	sqlite3* db;
+	int rc;
+	rc=sqlite3_open("StreamScope.db",&db);
+	if(rc)
+	{
+		cout<<"Can't Open database:"<<sqlite3_errmsg(db)<<endl;
+		sqlite3_close(db);
+		return 1;
+
+	}
+	else
+	{
+		cout<<"Database Opened Successfully"<<endl;
+		char* errMsg=nullptr;
+		
+		string createTableSql=R"(
+		CREATE TABLE IF NOT EXISTS playback_sessions(
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			session_start TEXT,
+			session_end TEXT,
+			duration REAL,
+			average_bitrate REAL,
+			highest_bitrate REAL,
+			lowest_bitrate REAL,
+			average_buffer REAL,
+			dropped_frames INTEGER,
+			playback_errors INTEGER,
+			health_score INTEGER
+		
+		);
+		)";
+		rc=sqlite3_exec(db,createTableSql.c_str(),nullptr,nullptr,&errMsg);
+		if(rc!=SQLITE_OK)
+		{
+			cout<<"Error Creating table:"<<errMsg<<endl;
+			sqlite3_free(errMsg);
+		}
+		else{
+			cout<<"Table Created successfully"<<endl;
+		}
+	}
+
+
 	ifstream file("playback_session.json");
 	if(!file.is_open())
 	{
@@ -178,6 +223,57 @@ int main(){
 		<<healthScore<<"/100"<<endl;
 	cout<<"Health Status             :"
 		<<healthStatus<<endl;
+
+	char* errMsg=nullptr;
+	string insertSQL =
+    "INSERT INTO playback_sessions "
+    "(session_start, session_end, duration, average_bitrate, highest_bitrate, "
+    "lowest_bitrate, average_buffer, dropped_frames, playback_errors, health_score) "
+    "VALUES ('"
+    + sessionInfo["startTime"].get<string>() + "', '"
+    + sessionInfo["endTime"].get<string>() + "', "
+    + to_string(finalStats["playbackDuration"].get<double>()) + ", "
+    + to_string(finalStats["averageBitrateMbps"].get<double>()) + ", "
+    + to_string(finalStats["highestBitrateMbps"].get<double>()) + ", "
+    + to_string(finalStats["lowestBitrateMbps"].get<double>()) + ", "
+    + to_string(finalStats["averageBufferLevel"].get<double>()) + ", "
+    + to_string(finalStats["droppedFrames"].get<int>()) + ", "
+    + to_string(finalStats["errors"].get<int>()) + ", "
+    + to_string(healthScore)
+    + ");";
+	rc=sqlite3_exec(db,insertSQL.c_str(),nullptr,nullptr,&errMsg);
+	if(rc!=SQLITE_OK)
+	{
+		cout<<"Error Inserting data:"<<errMsg<<endl;
+		sqlite3_free(errMsg);
+	}
+	else
+	{
+		cout<<"Playback Session Stored successfully!"<<endl;
+	}
+	cout<<"\n Stored Session in Database\n";
+	cout<<"------------------------------------------------------\n";
+
+	string selectSQL="SELECT * FROM playback_sessions";
+	auto callback=[](void* data, int argc, char** argv,char** azColName)->int
+	{
+		for(int i=0;i<argc;i++)
+		{
+			cout<<azColName[i]<<":"
+				<<(argv[i]?argv[i]:"NULL")<<endl;
+		}
+		cout<<"------------------------------------------------------\n";
+		return 0;
+	};
+	rc=sqlite3_exec(db,selectSQL.c_str(),callback,nullptr,&errMsg);
+	if(rc!=SQLITE_OK)
+	{
+		cout<<"Error Reading data:"<<errMsg<<endl;
+		sqlite3_free(errMsg); 
+
+	};
+
+
 	cout<<"\nObservations\n";
 	if(finalStats["completionRate"]==100)
 		cout<<"[OK] Network completed all requests successfully.\n";
@@ -307,4 +403,6 @@ int main(){
 		}
 	}
 	cout<<defaultfloat;
+
+	sqlite3_close(db);
 	}
