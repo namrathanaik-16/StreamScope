@@ -34,6 +34,7 @@ function addLog(category,eventName,details={}){
     logItem.appendChild(logSummary);
     logItem.appendChild(logDetails);
     logContainer.appendChild(logItem);
+    document.getElementById("logCount").textContent=`${sessionLogs.length} Events`;
 }
 
 //adding more information to the log
