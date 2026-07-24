@@ -40,7 +40,10 @@ string getAudioCodecName(const string& codec)
 	return codec;
 
 }
+void analyzePlayback(json playbackSession,sqlite3* db)
+{
 
+}
 int main(){
 	//database
 	sqlite3* db;
@@ -84,6 +87,13 @@ int main(){
 			cout<<"Table Created successfully"<<endl;
 		}
 	}
+	httplib::Server server;
+	server.Post("/analyze",
+	[](const httplib::Request& req,
+	   httplib::Response& res)
+	   {
+		res.set_content("Backend is working!","text/plain");
+	   });
 
 
 	ifstream file("playback_session.json");
@@ -406,4 +416,6 @@ int main(){
 	cout<<defaultfloat;
 
 	sqlite3_close(db);
+	cout<<"Server running on http://localhost:8000"<<endl;
+	server.listen("0.0.0.0",8000);
 	}
