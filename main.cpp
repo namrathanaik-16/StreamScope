@@ -450,8 +450,8 @@ int main(){
                 {
                     res.set_content("Failed to prepare SQL query","text/plain");
                     return;
-                }
-                rc=sqlite3_step(stmt);
+				}
+				json sessions=json::array();
                 while(sqlite3_step(stmt)==SQLITE_ROW)
                 {
                     int id = sqlite3_column_int(stmt,0);
@@ -465,6 +465,15 @@ int main(){
 					double healthScore=
 						sqlite3_column_double(stmt,10);
 					
+					//converting into json format
+					json session;
+					session["id"]=id;
+					session["session_start"]=reinterpret_cast<const char*>(sessionStart);
+					session["duration"]=duration;
+					session["average_bitrate"]=averageBitrate;
+					session["health_score"]=healthScore;
+					sessions.push_back(session);
+					
 					cout<<"Session ID:"<<id<<endl;
 					cout<<"Session start:"<<sessionStart<<endl;	
 				    cout<<"Duration:"<<duration<<endl;
@@ -472,7 +481,8 @@ int main(){
 					cout<<"Health Score:"<<healthScore<<endl;
 
                 }
-				res.set_content("Session read successfully!", "text/plain");
+				res.set_content(sessions.dump(4), "application/json");
+				
 			});
 
 
