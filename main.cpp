@@ -413,6 +413,7 @@ int main(){
 		}
 	}
 	httplib::Server server;
+    //post
 	server.Post("/playback",
     [&db](const httplib::Request& req,
       httplib::Response& res)
@@ -423,6 +424,56 @@ int main(){
     analyzePlayback(playbackSession,db);
     res.set_content("JSON received","text/plain");
 });
+    //get
+    server.Get("/sessions",
+	[&](const httplib::Request& req,
+	         httplib::Response& res)
+			{
+                static int count=0;
+                count++;
+                cout<<"Get /sessions called. Count = "<<count<<endl;
+				const char* sql =
+                     "SELECT id, session_start, session_end, duration, "
+                     "average_bitrate, highest_bitrate, lowest_bitrate, "
+                     "average_buffer, dropped_frames, playback_errors, "
+                     "health_score "
+                     "FROM playback_sessions;";
+                sqlite3_stmt* stmt;
+                int rc = sqlite3_prepare_v2(
+                    db,
+                    sql,
+                    -1,
+                    &stmt,
+                    nullptr
+                );
+                if(rc!=SQLITE_OK)
+                {
+                    res.set_content("Failed to prepare SQL query","text/plain");
+                    return;
+                }
+                rc=sqlite3_step(stmt);
+                while(sqlite3_step(stmt)==SQLITE_ROW)
+                {
+                    int id = sqlite3_column_int(stmt,0);
+
+					const unsigned char* sessionStart=
+						sqlite3_column_text(stmt,1);
+					double duration=
+						sqlite3_column_double(stmt,3);
+					double averageBitrate=
+						sqlite3_column_double(stmt,4);
+					double healthScore=
+						sqlite3_column_double(stmt,10);
+					
+					cout<<"Session ID:"<<id<<endl;
+					cout<<"Session start:"<<sessionStart<<endl;	
+				    cout<<"Duration:"<<duration<<endl;
+					cout<<"Average Bitrate:"<<averageBitrate<<endl;
+					cout<<"Health Score:"<<healthScore<<endl;
+
+                }
+				res.set_content("Session read successfully!", "text/plain");
+			});
 
 
 	
