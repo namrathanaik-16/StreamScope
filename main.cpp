@@ -1,6 +1,7 @@
 #include<iostream>
 #include<iomanip>
 #include<fstream>
+#include<sstream>
 #include"sqlite3.h"
 #include "json.hpp"
 #include "httplib.h"
@@ -39,6 +40,79 @@ string getAudioCodecName(const string& codec)
 
 	return codec;
 
+}
+void generateMarkdownReport(
+	json sessionInfo,
+	json manifestBasics,
+	json manifestTracks,
+	json finalStats
+)
+{
+	ofstream report("report.md");
+	report<<"# StreamScope Playback Report\n\n";
+	report<<"## Session Information\n";
+	report<<"- Session ID:"
+		  <<sessionInfo["sessionId"].get<string>()<<"\n";
+	report<<"- Start Time:"
+		  <<sessionInfo["startTime"].get<string>()<<"\n";
+	report<<"- End Time:"
+		  <<sessionInfo["endTime"].get<string>()<<"\n";
+	report<<"- MPD URL:"
+		  <<sessionInfo["mpdUrl"].get<string>()<<"\n";
+
+	report<<"\n## Manifest Information\n";
+	report<<"- MPD Type:"
+	      <<manifestBasics["mpdType"].get<string>()<<"\n";
+	report<<"- Duration:"
+		  <<manifestBasics["duration"].get<string>()<<"\n";
+	report<<"- DASH Profile:"
+		  <<manifestBasics["profile"].get<string>()<<"\n";
+	report<<"- Period Count:"
+		  <<manifestBasics["periods"]<<"\n";
+	report<<"- Video Adaptation Sets:"
+	      <<manifestTracks["videoAdaptationSets"]<<"\n";
+	report<<"- Audio Adaptation Sets:"
+		  <<manifestTracks["audioAdaptationSets"]<<"\n";
+	report<<"- Video Codec:"
+		  <<manifestTracks["videoCodec"].get<string>()<<"\n";
+	report<<"- Audio Codec:"
+		  <<manifestTracks["audioCodec"].get<string>()<<"\n\n";
+
+
+	
+	report<<"## Playback Statistics\n";
+	report<<"- Duration:"
+		  <<finalStats["playbackDuration"]
+		  <<"seconds\n";
+	report<<"- Average Bitrate:"
+	      <<finalStats["averageBitrateMbps"]
+		  <<"Mbps\n";
+	report<<"- Average Buffer Level:"
+	      <<finalStats["averageBufferLevel"]
+		  <<"seconds\n";
+	report<<"- Dropped Frames:"
+		  <<finalStats["droppedFrames"]
+		  <<"\n\n";
+
+	report<<"## Network Summary\n";
+
+    report<<"- Total Requests:"
+          <<finalStats["networkRequests"]<<"\n";
+	report<<"- Completed Requests:"
+          <<finalStats["completedRequests"]<<"\n";
+	report<<"- Abandoned Requests:"
+          <<finalStats["abandonedRequests"]<<"\n";
+	report<<"- Completion Rate:"
+          <<finalStats["completionRate"]<<"%\n";
+	report<<"- Data Downloaded:"
+      	  <<finalStats["dataDownloadedMB"]<<" MB\n";
+	report<<"- Retry Attempts:"
+          <<finalStats["retryAttempts"]<<"\n";
+	report<<"- Errors:"
+          <<finalStats["errors"]<<"\n\n";
+		
+	report.close();
+	cout<<"Markdown report generated successfully!"<<endl;
 }
 void analyzePlayback(json playbackSession,sqlite3* db)
 {
@@ -366,6 +440,13 @@ void analyzePlayback(json playbackSession,sqlite3* db)
 		}
 	}
 	cout<<defaultfloat;
+	cout << "Calling generateMarkdownReport..." << endl;
+	generateMarkdownReport(
+		sessionInfo,
+		manifestBasic,
+		manifestTracks,
+		finalStats
+	);
 }
 
 
@@ -413,6 +494,15 @@ int main(){
 		}
 	}
 	httplib::Server server;
+	server.Options("/playback",
+	[](const httplib::Request& req,
+			 httplib::Response& res)
+	{
+		res.set_header("Access-Control-Allow-Origin","*");
+		res.set_header("Access-Control-Allow-Methods","POST_OPTIONS");
+		res.set_header("Access-Control-Allow-Headers","Content-Type");
+		res.status=200;
+	});
     //post
 	server.Post("/playback",
     [&db](const httplib::Request& req,
@@ -422,6 +512,7 @@ int main(){
     cout<<req.body<<endl;
     json playbackSession=json::parse(req.body);
     analyzePlayback(playbackSession,db);
+	res.set_header("Access-Control-Allow-Origin", "*");
     res.set_content("JSON received","text/plain");
 });
     //get
@@ -473,14 +564,11 @@ int main(){
 					session["average_bitrate"]=averageBitrate;
 					session["health_score"]=healthScore;
 					sessions.push_back(session);
+				}
+				sqlite3_finalize(stmt);	
 					
-					cout<<"Session ID:"<<id<<endl;
-					cout<<"Session start:"<<sessionStart<<endl;	
-				    cout<<"Duration:"<<duration<<endl;
-					cout<<"Average Bitrate:"<<averageBitrate<<endl;
-					cout<<"Health Score:"<<healthScore<<endl;
 
-                }
+                res.set_header("Access-Control-Allow-Origin", "*");
 				res.set_content(sessions.dump(4), "application/json");
 				
 			});
@@ -489,6 +577,23 @@ int main(){
 	
 
 	cout<<"Server running on http://localhost:8000"<<endl;
+	server.Get("/report",
+	[](const httplib::Request& req,
+			 httplib::Response& res)
+	{
+		std:: ifstream report("report.md");
+		if(!report.is_open())
+		{
+			res.status=404;
+			res.set_content("Report not found","text/plain");
+			return;
+		}
+		std::stringstream buffer;
+		buffer<<report.rdbuf();
+
+		res.set_header("Access-Control-Allow-Origin","*");
+		res.set_content(buffer.str(),"text/plain");
+	});
 	server.listen("0.0.0.0",8000);
     
 	sqlite3_close(db);
