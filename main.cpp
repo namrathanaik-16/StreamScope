@@ -42,10 +42,12 @@ string getAudioCodecName(const string& codec)
 
 }
 void generateMarkdownReport(
+
 	json sessionInfo,
 	json manifestBasics,
 	json manifestTracks,
-	json finalStats
+	json finalStats,
+	json playbackEvents
 )
 {
 	ofstream report("report.md");
@@ -110,7 +112,99 @@ void generateMarkdownReport(
           <<finalStats["retryAttempts"]<<"\n";
 	report<<"- Errors:"
           <<finalStats["errors"]<<"\n\n";
-		
+
+	report<<"## Playback Health\n";
+	int healthScore=100;
+	if(finalStats["droppedFrames"]>0)
+		healthScore-=10;
+	if(finalStats["completionRate"]<100)
+		healthScore-=20;
+	if(finalStats["retryAttempts"]>0)
+		healthScore-=10;
+	if(finalStats["errors"]>0)
+		healthScore-=30;
+	string healthStatus;
+	if(healthScore>=90)
+		healthStatus="Excellent";
+	else if(healthScore>=75)
+		healthStatus="Good";
+	else if(healthScore>=50)
+		healthStatus="Fair";
+	else
+	    healthStatus="Poor";
+	report<<"- Overall Score:"
+		  <<healthScore
+		  <<"/100\n";
+	report<<"- Health Status:"
+	      <<healthStatus
+		  <<"\n";
+		  
+	report<<"\n## Observations\n";
+	
+	if(finalStats["completionRate"]==100)
+		report<<"- ✓ Network completed all requests successfully.\n";
+	if(finalStats["retryAttempts"]==0)
+		report<<"- ✓ No retry attempts detected.\n";
+	if(finalStats["errors"]==0)
+		report<<"- ✓ No playback errors detected.\n";
+	if(finalStats["droppedFrames"]==0)
+		report<<"- ✓ No dropped frames detected.\n";
+	else 
+		report<<"- ⚠ Dropped frames were observed during playback.\n";
+
+	report<<"\n## Representation Switch Analysis\n";
+	int count=finalStats["representationSwitches"];
+	string switchFrequency;
+	string adaptationStability;
+	if(count<=2)
+	{
+		switchFrequency="Low";
+		adaptationStability="Stable";
+	}
+	else if(count<=5)
+	{
+		switchFrequency="Moderate";
+		adaptationStability="Acceptable";
+	}
+	else{
+		switchFrequency="High";
+		adaptationStability="Unstable";
+	}
+	report<<"- Total Representation Switches:"<<count<<"\n";
+	report<<"- Switch Frequency:"<<switchFrequency<<"\n";
+	report<<"- Adaptation Stability:"<<adaptationStability<<"\n";
+
+	report<<"\n## Bitrate Analysis\n";
+	double averageBitrate=finalStats["averageBitrateMbps"];
+	double highestBitrate=finalStats["highestBitrateMbps"];
+	double lowestBitrate=finalStats["lowestBitrateMbps"];
+	
+	double bitrateVariation=highestBitrate-lowestBitrate;
+	double variationPercentage=0.0;
+	if(averageBitrate>0)
+		variationPercentage=(bitrateVariation/averageBitrate)*100.0;
+	string bitrateStability;
+	if(variationPercentage<15)
+	{
+		bitrateStability="Stable";
+	}
+	else if(variationPercentage<=35)
+	{
+		bitrateStability="Moderate";
+	}
+	else
+	{
+		bitrateStability="Highly Variable";
+	}
+	report<<"- Average Bitrate: "<<averageBitrate<<" Mbps\n";
+	report<<"- Highest Bitrate: "<<highestBitrate<<" Mbps\n";
+	report<<"- Lowest Bitrate: "<<lowestBitrate<<" Mbps\n";
+	report<<"- Bitrate Variation: "<<bitrateVariation<<" Mbps\n";
+	report<<"- Variation Percentage: "<<fixed<<setprecision(2)
+		  <<variationPercentage<<" %\n";
+	report<<defaultfloat;
+	report<<"- Bitrate Stability: "<<bitrateStability<<"\n";
+
 	report.close();
 	cout<<"Markdown report generated successfully!"<<endl;
 }
@@ -423,7 +517,7 @@ void analyzePlayback(json playbackSession,sqlite3* db)
              << " Mbps)"
              << endl;
 		}
-		else if(event=="AUDIO_TRACK_CHANGED")
+		else if(eventName=="AUDIO_TRACK_CHANGED")
 		{
 			cout<<playbackTime<<" s"
 				<<"  Audio Track Changed"<<endl;
@@ -433,7 +527,7 @@ void analyzePlayback(json playbackSession,sqlite3* db)
 			cout<<playbackTime<<" s"
 				<<"  Playback Paused"<<endl;
 		}
-		else if(event=="PLAYBACK_ENDED")
+		else if(eventName=="PLAYBACK_ENDED")
 		{
 			cout<<playbackTime<<" s"
 				<<"  Playback Paused"<<endl;
@@ -445,7 +539,8 @@ void analyzePlayback(json playbackSession,sqlite3* db)
 		sessionInfo,
 		manifestBasic,
 		manifestTracks,
-		finalStats
+		finalStats,
+		playbackEvents
 	);
 }
 
@@ -499,7 +594,7 @@ int main(){
 			 httplib::Response& res)
 	{
 		res.set_header("Access-Control-Allow-Origin","*");
-		res.set_header("Access-Control-Allow-Methods","POST_OPTIONS");
+		res.set_header("Access-Control-Allow-Methods","POST,GET,OPTIONS");
 		res.set_header("Access-Control-Allow-Headers","Content-Type");
 		res.status=200;
 	});
