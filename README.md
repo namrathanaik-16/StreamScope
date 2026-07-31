@@ -1,197 +1,258 @@
 # 🎥 StreamScope
 
+<p align="center">
+  <b>Playback Observability Platform for MPEG-DASH Streaming</b><br>
+  Real-time playback analytics • Manifest Intelligence • Network Diagnostics • Session Reporting
+</p>
+
+<p align="center">
+
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![Dash.js](https://img.shields.io/badge/Dash.js-000000?style=for-the-badge)
+![dash.js](https://img.shields.io/badge/Dash.js-000000?style=for-the-badge)
 ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
 
-# StreamScope
-
-**StreamScope** is a playback observability and analytics platform designed for **MPEG-DASH video streaming**. It combines a real-time monitoring dashboard with a C++ analytics engine to provide comprehensive insights into playback performance, stream quality, and user experience.
-
-The project enables developers and QA engineers to monitor playback sessions, analyze streaming metrics, identify performance issues, and store playback analytics for future analysis.
+</p>
 
 ---
 
-## ✨ Features
+# 📖 About StreamScope
 
-### 🎬 Frontend Dashboard
+**StreamScope** is a Playback Observability Platform developed for **MPEG-DASH video streaming**.
 
-- MPEG-DASH video playback using Dash.js
-- Real-time playback monitoring
-- Operational health monitoring
-- Manifest Intelligence
-- Playback Timeline
-- Network Diagnostics
-- Buffer level monitoring
-- Bitrate tracking
-- Resolution detection
-- Video & Audio codec detection
-- Buffer-over-Time chart
-- Bitrate-over-Time chart
-- Playback event logging
-- Export playback session as JSON
+It combines a modern monitoring dashboard with a C++ analytics engine to provide detailed insights into playback quality, adaptive streaming behaviour, network performance, and playback health.
+
+The platform allows developers and QA engineers to monitor playback sessions, analyze streaming metrics, detect playback issues, generate reports, and store session analytics for future analysis.
 
 ---
 
-### ⚙️ Backend Analytics Engine
+# ✨ Features
 
-- Playback session JSON parsing
-- Session information analysis
-- Manifest summary generation
-- Playback statistics analysis
-- Network summary generation
-- Playback health score calculation
-- Representation switch analysis
-- Bitrate analysis
-- Playback timeline generation
-- Playback observations and insights
-- SQLite database integration
-- Session storage
-- Session retrieval
+## 🎬 Playback Monitoring
+
+- Play MPEG-DASH MPD streams
+- Live playback status
+- Resolution monitoring
+- Bitrate monitoring
+- Buffer level tracking
+- Dropped frames monitoring
 
 ---
 
-## 🛠️ Tech Stack
+## 📊 Playback Analytics
 
-### Frontend
-
-- HTML5
-- CSS3
-- JavaScript (ES6)
-- Dash.js
-- Chart.js
-
-### Backend
-
-- C++
-- SQLite3
-- nlohmann/json
+- Buffer Level Graph
+- Bitrate Graph
+- Representation Switch Detection
+- Adaptive Bitrate Monitoring
 
 ---
 
-## 📊 Analytics Generated
+## 📑 Manifest Intelligence
 
-The backend generates detailed playback reports including:
+- MPD Type
+- Duration
+- DASH Profile
+- Period Count
+- Video Adaptation Sets
+- Audio Adaptation Sets
+- Available Resolutions
+- Available Bitrates
+- Video Codec
+- Audio Codec
+- Segment Type
+- Segment Duration
+- DRM Detection
+
+---
+
+## 🌐 Network Summary
+
+- Total Requests
+- Completed Requests
+- Abandoned Requests
+- Completion Rate
+- Data Downloaded
+- Retry Attempts
+- Playback Health
+
+---
+
+## 📝 Playback Logs
+
+- Playback Events
+- Network Events
+- Buffer Events
+- Subtitle Events
+- Audio Events
+- Error Events
+- Export Logs as JSON
+
+---
+
+## 📄 Session Report
+
+Automatically generates a Markdown report containing:
 
 - Session Information
-- Manifest Summary
+- Manifest Information
 - Playback Statistics
 - Network Summary
 - Playback Health Score
 - Representation Switch Analysis
 - Bitrate Analysis
-- Playback Timeline
-- Playback Observations
+- Observations
 
 ---
 
-## 🗄️ Database
+## 💾 Backend
 
-Playback sessions are stored in an SQLite database for future analysis.
-
-Each stored session contains:
-
-- Session Start Time
-- Session End Time
-- Playback Duration
-- Average Bitrate
-- Highest Bitrate
-- Lowest Bitrate
-- Average Buffer Level
-- Dropped Frames
-- Playback Errors
-- Playback Health Score
+- C++ HTTP Server
+- SQLite Session Storage
+- Markdown Report Generator
+- REST APIs
+- Session Analytics Engine
 
 ---
 
-## 🚀 Getting Started
-
-### Frontend
-
-1. Host the project using Apache or open it locally.
-2. Enter an MPEG-DASH MPD URL.
-3. Start playback.
-4. Monitor playback analytics in real time.
-5. Export the playback session.
-
-### Backend
-
-Compile the backend:
-
-```bash
-g++ main.cpp sqlite3.c -o StreamScopeBackend
-```
-
-Run the executable:
-
-```bash
-./StreamScopeBackend
-```
-
-The backend will:
-
-- Read the exported playback session JSON
-- Analyze playback metrics
-- Generate playback reports
-- Store the session in SQLite
-- Display analytics in the console
-
----
-
-## 🏗️ Project Workflow
+# 🏗️ Architecture
 
 ```text
-MPEG-DASH Stream
-        │
-        ▼
-Frontend Dashboard
-        │
-Real-Time Playback Monitoring
-        │
-Export Playback Session (JSON)
-        │
-        ▼
-C++ Analytics Engine
-        │
-Playback Analysis
-        │
-Health Score Calculation
-        │
-SQLite Database Storage
+                +----------------------+
+                |     Frontend UI      |
+                | HTML • CSS • JS      |
+                +----------+-----------+
+                           |
+                           |
+                     HTTP Requests
+                           |
+                           ▼
+               +----------------------+
+               |     C++ Backend      |
+               | cpp-httplib Server   |
+               +----------+-----------+
+                           |
+          +----------------+----------------+
+          |                                 |
+          ▼                                 ▼
+  SQLite Database                Markdown Report
+ Session Storage                 Report Generator
 ```
 
 ---
 
+# 🛠️ Tech Stack
 
-## 🔮 Future Enhancements
-
-- Automatic Frontend-to-Backend communication using REST APIs
-- Live playback analytics dashboard
-- Historical playback reports
-- Session comparison
-- Trend analysis
-- Advanced playback diagnostics
-- Playback anomaly detection
-- Multi-session analytics dashboard
+| Category | Technologies |
+|----------|--------------|
+| Frontend | HTML5, CSS3, JavaScript |
+| Streaming | MPEG-DASH, dash.js |
+| Visualization | Chart.js |
+| Backend | C++ |
+| Database | SQLite3 |
+| Networking | cpp-httplib |
+| JSON | nlohmann/json |
 
 ---
 
-## 👩‍💻 Author
+# 📂 Project Structure
+
+```text
+StreamScope
+│
+├── index.html
+├── style.css
+├── script.js
+├── main.cpp
+├── sqlite3.c
+├── sqlite3.h
+├── httplib.h
+├── json.hpp
+├── report.md
+├── StreamScope.db
+└── README.md
+```
+
+---
+
+# 🚀 Getting Started
+
+## Backend
+
+Compile and run
+
+```bash
+main.exe
+```
+
+Server runs on
+
+```
+http://localhost:8000
+```
+
+---
+
+## Frontend
+
+Host using Apache Server.
+
+Open
+
+```
+http://<your-ip>/StreamScope
+```
+
+Enter a valid MPD URL and click **Analyze Session**.
+
+---
+
+# 📊 Output
+
+✔ Playback Dashboard
+
+✔ Manifest Analysis
+
+✔ Network Summary
+
+✔ Playback Logs
+
+✔ Markdown Report
+
+✔ SQLite Session Storage
+
+
+---
+
+# 🔮 Future Enhancements
+
+- HLS Support
+- Historical Analytics Dashboard
+- Session Comparison
+- PDF Report Export
+- User Authentication
+- Cloud Database
+- Live Streaming Analytics
+
+---
+
+# 👩‍💻 Author
 
 **Namratha V Naik**
 
-Information Science & Engineering Graduate
+Information Science & Engineering
 
-Frontend Developer • Software Engineer • AI Enthusiast
+Global Academy of Technology
 
-**GitHub:** https://github.com/namrathanaik-16
+Software Engineering • Streaming Technologies • Web Development
 
 ---
 
-## 📄 License
+<p align="center">
 
-This project is intended for educational, internship, and portfolio purposes.
+⭐ If you found this project interesting, consider giving it a star.
+
+</p>
