@@ -70,7 +70,7 @@ button{
     font-weight: 600;
     transition: .25s;
 }
-button::hover{
+button:hover{
     background: #2563EB;
     transform: translateY(-2px);
 }
@@ -123,14 +123,7 @@ button::hover{
 .video-header h2{
     font-size: 24px;
 }
-.video-status{
-    background: #1B4332;
-    color: #22C55E;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-}
+
 #videoPlayer{
     width: 100%;
     border-radius: 14px;
@@ -384,7 +377,7 @@ button::hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 90%;
+    min-width: 50%;
 }
 .log-container{
     display: flex;
@@ -416,5 +409,79 @@ button::hover{
     background: #182236;
     transition: 0.2s ease;
 }
+.report-modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.report-modal-content{
+    width: 80%;
+    max-width: 900px;
+    max-height: 80vh;
+    background: #1b2234;
+    color: white;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
 
-
+}
+.close-report{
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+}
+#reportContent{
+    white-space: pre-wrap;
+    font-family: Consolas, monospace;
+}
+.report-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: #1b2234;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.report-body{
+    overflow-y: auto;
+    padding: 20px 25px;
+}
+#viewReportButton:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.report-actions{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+#downloadReportButton{
+    padding: 8px 14px;
+    font-size: 14px;
+}
+.close-report{
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+}
+#exportLogsButton{
+    margin-top: 20px;
+    width: 100%;
+}
+.logs-actions{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}

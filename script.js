@@ -6,7 +6,15 @@ let previousRepresentation=null;
 let playbackSession=null;
 const logContainer=document.getElementById("logContainer")
 const endSessionButton=document.getElementById("endSessionButton");
-const exportSessionButton = document.getElementById("exportSessionButton");
+const viewReportButton=document.getElementById("viewReportButton");
+const reportModal=document.getElementById("reportModal");
+const closeReportModal=document.getElementById("closeReportModal");
+const downloadReportButton=document.getElementById("downloadReportButton");
+const exportLogsButton=document.getElementById("exportLogsButton");
+console.log("reportModal:", reportModal);
+console.log("closeReportModal:", closeReportModal);
+console.log("reportContent:", document.getElementById("reportContent"));
+
 
 //logs collection
 let sessionLogs=[];
@@ -609,7 +617,7 @@ function analyzeManifestTracks(){
         document.getElementById("availableBitrates").textContent=
             bitrates.join(", ");
         let videoCodec = videoTrack.codec || "Not Specified";
-        if(videoCodec.includes("hev1") || videoCodec.includes(hvc1)){
+        if(videoCodec.includes("hev1") || videoCodec.includes("hvc1")){
             videoCodec="HEVC(H.265)";
         }
         else if(videoCodec.includes("avc1")){
@@ -629,7 +637,7 @@ function analyzeManifestTracks(){
         if(audioCodec.includes("mp4a")){
             audioCodec="AAC";
         }
-        else if(audioCodec("ec-3")){
+        else if(audioCodec.includes("ec-3")){
             audioCodec="Dolby Digital Plus";
         }
         document.getElementById("manifestAudioCodec").textContent=audioCodec;
@@ -690,6 +698,7 @@ function analyzeSegmentAndDRM(){
         drmPresent:drmPresent
     });
 }
+
 //playback session
 function initializePlaybackSession(mpdUrl){
     console.log("initializePlaybackSession called")
@@ -803,12 +812,60 @@ endSessionButton.addEventListener("click",function(){
     playbackSession.sessionInfo.endTime=
         new Date().toISOString();
     calculateFinalStatistics();
+    console.log(JSON.stringify(playbackSession, null, 2));
+    fetch("http://localhost:8000/playback",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(playbackSession)
+    })
+    .then(function(response){
+        return response.text();
+    })
+    .then(function(data){
+        console.log("Backend Response:",data);
+    })
+    .catch(function(error){
+        console.error("Error sending playback session:",error);
+    });
     video.pause();
     console.log("Playback Session completed:");
     console.log(playbackSession);
     alert("Playback Session Completed");
+    viewReportButton.disabled=false;
+    console.log("Button enabled:", viewReportButton.disabled);
 
-})
+});
+//view report
+viewReportButton.addEventListener("click",async function () {
+    if(viewReportButton.disabled){
+        return;
+    }
+    try{
+        const response=await fetch("http://localhost:8000/report");
+        if(!response.ok){
+            alert("Unable to load report.");
+            return;
+        }
+        const report=await response.text();
+        document.getElementById("reportContent").textContent=report;
+        reportModal.style.display="flex";
+    }
+    catch(error){
+        console.error("Report error:",error);
+        alert("Failed to load report.")
+    }
+});
+closeReportModal.addEventListener("click",function(){
+    reportModal.style.display="none";
+});
+
+window.addEventListener("click",function(event){
+    if(event.target===reportModal){
+        reportModal.style.display="none";
+    }
+});
 function exportPlaybackSession(){
     if(!playbackSession){
         alert("No playback session available");
@@ -824,15 +881,33 @@ function exportPlaybackSession(){
     const url=URL.createObjectURL(blob);
     const downloadLink=document.createElement("a");
     downloadLink.href=url;
-    downloadLink.download=playbackSession.sessionInfo.sessionId+".json";
+    downloadLink.download=playbackSession.sessionInfo.sessionId+"_logs.json";
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
     URL.revokeObjectURL(url);
 }
-exportSessionButton.addEventListener(
-    "click",
-    function(){
-        exportPlaybackSession();
+downloadReportButton.addEventListener("click",function(){
+    const report=document.getElementById("reportContent").textContent;
+    if(!report){
+        alert("No report available to download.");
+        return;
     }
-);
+    const blob=new Blob([report],{
+        type:"text/markdown" 
+    });
+    const url=URL.createObjectURL(blob);
+    const downloadLink=document.createElement("a");
+    downloadLink.href=url;
+
+    const sessionId=playbackSession
+        ?playbackSession.sessionInfo.sessionId
+        :"playback_report"; 
+    
+    downloadLink.download=sessionId+".md";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+});
+exportLogsButton.addEventListener("click",exportPlaybackSession);

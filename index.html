@@ -15,11 +15,9 @@
             <p>Playback Observability Platform</p>
         </div>
         <div class="header-right">
-            <div class="session-status">
-                🟢 LIVE SESSION
-            </div>
-            <button id="exportSessionButton">
-                Export Session
+            
+            <button id="viewReportButton" disabled>
+                View Report
             </button>
             <button id="endSessionButton">
                 End Session
@@ -42,9 +40,7 @@
     <section class="video-card">
         <div class="video-header">
             <h2>Playback Monitor</h2>
-            <span class="video-status">
-                LIVE
-            </span>
+            
 
         </div>
         <div id="VideoContainer">
@@ -120,46 +116,117 @@
         </div>
     </section>
 
-    <div id="networkSummary">
-        <h2>Network Summary</h2>
+    <div id="networkSummary" class="network-summary-card">
 
-        <p>Total Requests :
-            <span id="totalRequests">0</span>
-        </p>
-        <p>Completed Requests:
-            <span id="completedRequests">0</span>
-        </p>
-        <p>Abandoned Requests:
-            <span id="abandonedRequests">0</span>
-        </p>
-        <p>Completion Rate:
-            <span id="completionRate">0</span>
-        </p>
-        <p>Data downloaded:
-            <span id="dataDownloaded">0 MB</span>
-        </p>
-        <p>Total Retries:
-            <span id="totalRetries">0</span>
-        </p>
-        <p>Dropped Frames:
-            <span id="droppedFrames"></span>
-        </p>
-        <p>Video Codec:
-            <span id="videoCodec"></span>
-        </p>
-        <p>Audio Codec
-            <span id="audioCodec">-</span>
-        </p>
+    <div class="section-header">
+        <h2><i class="fas fa-network-wired"></i> Network Summary</h2>
+        <span id="networkHealth" class="health-badge good">Excellent</span>
     </div>
+
+    <div class="network-grid">
+
+        <div class="metric-card">
+            <i class="fas fa-server"></i>
+            <span class="label">Total Requests</span>
+            <span class="value" id="totalRequests">0</span>
+        </div>
+
+        <div class="metric-card">
+            <i class="fas fa-circle-check"></i>
+            <span class="label">Completed</span>
+            <span class="value" id="completedRequests">0</span>
+        </div>
+
+        <div class="metric-card">
+            <i class="fas fa-circle-xmark"></i>
+            <span class="label">Abandoned</span>
+            <span class="value" id="abandonedRequests">0</span>
+        </div>
+
+        <div class="metric-card">
+            <i class="fas fa-chart-line"></i>
+            <span class="label">Completion Rate</span>
+            <span class="value" id="completionRate">0%</span>
+        </div>
+
+        <div class="metric-card">
+            <i class="fas fa-download"></i>
+            <span class="label">Downloaded</span>
+            <span class="value" id="dataDownloaded">0 MB</span>
+        </div>
+
+        <div class="metric-card">
+            <i class="fas fa-rotate-right"></i>
+            <span class="label">Retries</span>
+            <span class="value" id="totalRetries">0</span>
+        </div>
+
+        <div class="metric-card">
+            <i class="fas fa-film"></i>
+            <span class="label">Video Codec</span>
+            <span class="value" id="videoCodec">-</span>
+        </div>
+
+        <div class="metric-card">
+            <i class="fas fa-volume-high"></i>
+            <span class="label">Audio Codec</span>
+            <span class="value" id="audioCodec">-</span>
+        </div>
+
+        <div class="metric-card wide-card">
+            <i class="fas fa-video"></i>
+            <span class="label">Dropped Frames</span>
+            <span class="value" id="droppedFrames">0</span>
+        </div>
+
+    </div>
+    </div>
+
     
 
-    <div id="playbackLogs">
-        <h2>Playback Logs</h2>
-        <div id="logContainer"></div>
+    <section class="logs-section">
+    <div class="logs-header">
+        <h2><i class="fas fa-list"></i> Playback Logs</h2>
+        <span id="logCount" class="log-count">0 Events</span>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div id="logContainer" class="log-container">
+        <!-- Logs will be inserted here -->
+         
+    </div>
+    <div class="logs-actions">
+        <button id="exportLogsButton">
+            📤 Export Playback Logs
+        </button>
+    </div>
+</section>
+ 
+    
+<div id="reportModal" class="report-modal">
+
+    <div class="report-modal-content">
+
+        <div class="report-header">
+            <h2>📄 Playback Report</h2>
+
+            <div class="report-actions">
+                <button id="downloadReportButton">Download Report</button>
+                <span id="closeReportModal" class="close-report">&times;</span>
+            </div>
+        </div>
+
+        <div class="report-body">
+            <pre id="reportContent"></pre>
+        </div>
+
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./script.js"></script>
-    </div>
+    <link rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
     
 </body>
 </html>
