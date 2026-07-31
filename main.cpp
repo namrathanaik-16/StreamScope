@@ -534,13 +534,11 @@ void analyzePlayback(json playbackSession,sqlite3* db)
 		}
 	}
 	cout<<defaultfloat;
-	cout << "Calling generateMarkdownReport..." << endl;
 	generateMarkdownReport(
 		sessionInfo,
 		manifestBasic,
 		manifestTracks,
-		finalStats,
-		playbackEvents
+		finalStats
 	);
 }
 
@@ -603,8 +601,7 @@ int main(){
     [&db](const httplib::Request& req,
       httplib::Response& res)
 {
-    cout<<"Received JSON\n";
-    cout<<req.body<<endl;
+    
     json playbackSession=json::parse(req.body);
     analyzePlayback(playbackSession,db);
 	res.set_header("Access-Control-Allow-Origin", "*");
@@ -615,9 +612,6 @@ int main(){
 	[&](const httplib::Request& req,
 	         httplib::Response& res)
 			{
-                static int count=0;
-                count++;
-                cout<<"Get /sessions called. Count = "<<count<<endl;
 				const char* sql =
                      "SELECT id, session_start, session_end, duration, "
                      "average_bitrate, highest_bitrate, lowest_bitrate, "

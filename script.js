@@ -11,10 +11,6 @@ const reportModal=document.getElementById("reportModal");
 const closeReportModal=document.getElementById("closeReportModal");
 const downloadReportButton=document.getElementById("downloadReportButton");
 const exportLogsButton=document.getElementById("exportLogsButton");
-console.log("reportModal:", reportModal);
-console.log("closeReportModal:", closeReportModal);
-console.log("reportContent:", document.getElementById("reportContent"));
-
 
 //logs collection
 let sessionLogs=[];
@@ -179,7 +175,6 @@ loadButton.addEventListener("click",function(){
         analyzeManifestTracks();
         analyzeSegmentAndDRM();
         const textTracks=player.getTracksFor("text");
-        console.log("Available subtitles tracks:",textTracks);
         addLog(
             "SUBTITLE","SUBTITLE_TRACKS_DETECTED",
             {

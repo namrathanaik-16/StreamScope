@@ -1,14 +1,9 @@
-.body{
-    background: #0B1020;
-    color: #F8FAFC;
-    padding: 30px;
-}
 .dashboard{
     max-width: 1600px;
     margin: auto;
 }
 .chart-container{
-    width: 80;
+    width: 80%;
     max-width: 800px;
     height: 300px;
     margin: 0 auto;
@@ -112,7 +107,7 @@ button:hover{
     border-radius: 18px;
     padding: 25px;
     margin-bottom: 35px;
-    box-shadow: 0 8px 20px rgba(0,0,0,rgba(0,0,0,.35));
+    box-shadow: 0 8px 20px rgba(0,0,0,.35);
 }
 .video-header{
     display: flex;
@@ -176,7 +171,7 @@ button:hover{
     padding: 25px;
     border-radius: 18px;
     margin-bottom: 35px;
-    border: 0 8px 20px rgba(0,0,0,.35);
+    box-shadow: 0 8px 20px rgba(0,0,0,.35);
 }
 .analytics-section h2{
     margin-bottom: 20px;
@@ -469,12 +464,6 @@ button:hover{
 #downloadReportButton{
     padding: 8px 14px;
     font-size: 14px;
-}
-.close-report{
-    font-size: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    line-height: 1;
 }
 #exportLogsButton{
     margin-top: 20px;
