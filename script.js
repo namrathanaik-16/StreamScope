@@ -11,6 +11,7 @@ const reportModal=document.getElementById("reportModal");
 const closeReportModal=document.getElementById("closeReportModal");
 const downloadReportButton=document.getElementById("downloadReportButton");
 const exportLogsButton=document.getElementById("exportLogsButton");
+let engineeringMode=false;
 
 //logs collection
 let sessionLogs=[];
@@ -547,6 +548,7 @@ loadButton.addEventListener("click",function(){
 //manifest details
 function analyzeBasicManifest(){
     const manifest = player.getManifest();
+    console.log(manifest);
     if(!manifest){
         console.log("Manifest data is not available");
         return;
@@ -570,8 +572,6 @@ function analyzeBasicManifest(){
         mpdType;
     document.getElementById("mpdDuration").textContent=
         duration;
-    document.getElementById("dashProfile").textContent=
-        profile;
     document.getElementById("periodCount").textContent=
         periods;
     console.log("Basic Manifest Analysis:",{
@@ -906,3 +906,34 @@ downloadReportButton.addEventListener("click",function(){
     URL.revokeObjectURL(url);
 });
 exportLogsButton.addEventListener("click",exportPlaybackSession);
+
+/*engineering mode*/
+const engineeringButton=document.getElementById("engineeringButton");
+const engineeringModal=document.getElementById("engineeringModal");
+const cancelEngineering=document.getElementById("cancelEngineering");
+const confirmEngineering=document.getElementById("confirmEngineering");
+engineeringButton.addEventListener("click",()=>{
+    if(engineeringMode){
+        toggleEngineeringMode();
+    }
+    else{
+        engineeringModal.classList.add("active")
+    }
+});
+cancelEngineering.addEventListener("click",()=>{
+    engineeringModal.classList.remove("active");
+});
+confirmEngineering.addEventListener("click",()=>{
+    engineeringModal.classList.remove("active");
+    toggleEngineeringMode();
+})
+function toggleEngineeringMode(){
+    engineeringMode=!engineeringMode;
+    const badge=document.getElementById("engineeringBadge");
+    const panel=document.getElementById("engineeringMode");
+    
+    badge.classList.toggle("active",engineeringMode);
+    panel.classList.toggle("active",engineeringMode);
+    engineeringButton.textContent=
+        engineeringMode?"🔓":"🔒";
+}

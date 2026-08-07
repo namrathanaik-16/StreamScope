@@ -12,11 +12,19 @@
 <body>
     <div class="dashboard">
     <header class="header">
-        <div class="header-left">
-            <h1>StreamScope</h1>
+        <div class="headerleft">
+            <div class="title-row">
+                <h1>StreamScope</h1>
+                <span id="engineeringBadge" class="engineering-badge">
+                    ⚙ ENGINEERING MODE
+                </span>
+            </div>
             <p>Playback Observability Platform</p>
         </div>
         <div class="header-right">
+            <button id="engineeringButton" class="engineering-Button" title="Engineering Mode">
+                🔒
+            </button>
             <button id="viewReportButton" disabled>
                 View Report
             </button>
@@ -25,6 +33,9 @@
             </button>
         </div>
     </header>
+    <section id="engineeringMode" class="engineering-mode"> 
+
+    </section>
     <section class="playback-source">
         <h2>Playback Source</h2>
         <div class="source-input">
@@ -205,6 +216,27 @@
         </div>
         <div class="report-body">
             <pre id="reportContent"></pre>
+        </div>
+    </div>
+</div>
+<div id="engineeringModal" class="engineering-modal">
+    <div class="engineering-modal-content">
+        <h2>⚙ Engineering Mode</h2>
+        <p>
+            Engineering mode provides
+            advanced playback diagnostics
+            and internal inspection tools.
+            <br><br>
+            Continue?
+
+        </p>
+        <div class="engineering-modal-buttons">
+            <button id="cancelEngineering">
+                Cancel
+            </button>
+            <button id="confirmEngineering">
+                Enter
+            </button>
         </div>
     </div>
 </div>
