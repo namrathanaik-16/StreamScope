@@ -10,9 +10,10 @@
     <link rel="icon" type="image/png" href="./logo.png">
 </head>
 <body>
+    <div id="dashboardView">
     <div class="dashboard">
     <header class="header">
-        <div class="headerleft">
+        <div class="header-left">
             <div class="title-row">
                 <h1>StreamScope</h1>
                 <span id="engineeringBadge" class="engineering-badge">
@@ -32,10 +33,11 @@
                 End Session
             </button>
         </div>
+        
     </header>
-    <section id="engineeringMode" class="engineering-mode"> 
+   
 
-    </section>
+    
     <section class="playback-source">
         <h2>Playback Source</h2>
         <div class="source-input">
@@ -238,9 +240,79 @@
                 Enter
             </button>
         </div>
+    </div>  
+</div>
+</div>
+</div>
+<div id="engineeringWorkspace" class="engineering-workspace">
+    <div class="engineering-header">
+        <h1>⚙ Engineering Workspace</h1>
+        <button id="exitEngineeringButton">
+            Exit Engineering Mode
+        </button>
+    </div>
+    <div class="engineering-content">
+        <div class="engineering-left">
+            <div class="engineeing-card session-inspector">
+                <div class="engineering-card-header">
+                    <div>
+                        <h2>Session Inspector</h2>
+                        <p>Deep playback diagnostics</p>
+                    </div>
+                    <span id="engineeingSessionStatus" class="engineering-status">
+                        LIVE
+                    </span>
+                </div>
+                <div class="engineeering-metric">
+                    <span class="metric-label">Bitrate</span>
+                    <span id="engBitrate" class="metric-value">-</span>
+                </div>
+                <div class="engineeering-metric">
+                    <span class="metric-label">Buffer</span>
+                    <span id="engBuffer" class="metric-value">-</span>
+                </div>
+                <div class="engineeering-metric">
+                    <span class="metric-label">Dropped Frames</span>
+                    <span id="engDroppedFrames" class="metric-value">0</span>
+                </div>
+                <div class="engineeering-metric">
+                    <span class="metric-label">Video Codec</span>
+                    <span id="engVideoCodec" class="metric-value">-</span>
+                </div>
+                <div class="engineeering-metric">
+                    <span class="metric-label">Audio Code</span>
+                    <span id="engAudioCodec" class="metric-value">-</span>
+                </div>
+                <div class="engineeering-metric">
+                    <span class="metric-label">Requests</span>
+                    <span id="engRequests" class="metric-value">0</span>
+                </div> 
+                <div class="engineeering-metric">
+                    <span class="metric-label">Errors</span>
+                    <span id="engErrors" class="metric-value">0</span>
+                </div>
+            </div>
+            <div class="engineering-events">
+                <div class="engineering-events-header">
+                    <h3>Live Event Stream</h3>
+                    <span id="engineeringEventCount">0 Events</span>
+                </div>
+                <div id="engineeringEventContainer">
+                    <div class="engineering-empty">
+                        Waiting for playback events....
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="engineering-right">
+            <div id="miniVideoContainer">
+
+            </div>
+        </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
