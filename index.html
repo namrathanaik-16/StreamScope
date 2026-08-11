@@ -253,53 +253,41 @@
     </div>
     <div class="engineering-content">
         <div class="engineering-left">
-            <div class="engineeing-card session-inspector">
-                <div class="engineering-card-header">
-                    <div>
-                        <h2>Session Inspector</h2>
-                        <p>Deep playback diagnostics</p>
-                    </div>
-                    <span id="engineeingSessionStatus" class="engineering-status">
-                        LIVE
+            <div class="engineering-card runtime-inspector">
+                <div>
+                    <h2>Runtime Data Inspector</h2>
+                    <p>Inspect live and completed session data</p>
+                </div>
+                <span id="runtimeDataStatus">
+                    LIVE
+                </span>
+            </div>
+            <div class="runtime-data-buttons">
+                <button id="bufferHistoryButton" class="runtime-data-button">
+                    bufferHistory
+                </button>
+                <button id="bitrateHistoryButton" class="runtime-data-button">
+                    bitrateHistory
+                </button>
+                <button id="networkLogsButton" class="runtime-data-button">
+                    networkLogs
+                </button>
+                <button id="networkSummaryButton" class="runtime-data-button">
+                    getNetworkSummary()
+                </button>
+            </div> 
+            <div class="runtime-data-viewer">
+                <div class="runtime-viewer-header">
+                    <h3 id="runtimeViewerTitle">
+                        Select a data source
+                    </h3>
+                    <span id="runtimeRecordCount">
+                        0 records
                     </span>
                 </div>
-                <div class="engineeering-metric">
-                    <span class="metric-label">Bitrate</span>
-                    <span id="engBitrate" class="metric-value">-</span>
-                </div>
-                <div class="engineeering-metric">
-                    <span class="metric-label">Buffer</span>
-                    <span id="engBuffer" class="metric-value">-</span>
-                </div>
-                <div class="engineeering-metric">
-                    <span class="metric-label">Dropped Frames</span>
-                    <span id="engDroppedFrames" class="metric-value">0</span>
-                </div>
-                <div class="engineeering-metric">
-                    <span class="metric-label">Video Codec</span>
-                    <span id="engVideoCodec" class="metric-value">-</span>
-                </div>
-                <div class="engineeering-metric">
-                    <span class="metric-label">Audio Code</span>
-                    <span id="engAudioCodec" class="metric-value">-</span>
-                </div>
-                <div class="engineeering-metric">
-                    <span class="metric-label">Requests</span>
-                    <span id="engRequests" class="metric-value">0</span>
-                </div> 
-                <div class="engineeering-metric">
-                    <span class="metric-label">Errors</span>
-                    <span id="engErrors" class="metric-value">0</span>
-                </div>
-            </div>
-            <div class="engineering-events">
-                <div class="engineering-events-header">
-                    <h3>Live Event Stream</h3>
-                    <span id="engineeringEventCount">0 Events</span>
-                </div>
-                <div id="engineeringEventContainer">
-                    <div class="engineering-empty">
-                        Waiting for playback events....
+                <div id="runtimeDataOutput">
+                    <div class="runtime-empty">
+                        Select a runtime data source above
                     </div>
                 </div>
             </div>

@@ -40,6 +40,33 @@ function addLog(category,eventName,details={}){
     logItem.appendChild(logDetails);
     logContainer.appendChild(logItem);
     document.getElementById("logCount").textContent=`${sessionLogs.length} Events`;
+
+    //engineering mode - live event stream 
+    addEngineeringEvent(logEntry);
+}
+function addEngineeringEvent(logEntry){
+    const container=document.getElementById("engineeringEventContainer");
+    const count=document.getElementById("engineeringEventCount");
+    if(!container||!count)
+    {
+        return;
+    }
+    const emptyMessage=container.querySelector(".engineering-empty");
+    if(emptyMessage){
+        emptyMessage.remove();
+    }
+    const eventItem=document.createElement("details");
+    eventItem.className="engineering-event-item";
+    const summary=document.createElement("summary");
+    const time=new Date(logEntry.timestamp).toLocaleTimeString();
+    summary.textContent=`${time} [${logEntry.category}] ${logEntry.event}`;
+    const details=document.createElement("pre");
+    details.textContent=JSON.stringify(logEntry,null,2);
+    eventItem.appendChild(summary);
+    eventItem.appendChild(details);
+
+    container.prepend(eventItem);
+    count.textContent=`${sessionLogs.length} events`;
 }
 
 //adding more information to the log
@@ -928,12 +955,145 @@ confirmEngineering.addEventListener("click",()=>{
     toggleEngineeringMode();
 })
 function toggleEngineeringMode(){
-    engineeringMode=!engineeringMode;
-    const badge=document.getElementById("engineeringBadge");
-    const panel=document.getElementById("engineeringMode");
-    
-    badge.classList.toggle("active",engineeringMode);
-    panel.classList.toggle("active",engineeringMode);
-    engineeringButton.textContent=
-        engineeringMode?"🔓":"🔒";
+
+    engineeringMode = !engineeringMode;
+
+    const dashboard =
+        document.getElementById("dashboardView");
+
+    const workspace =
+        document.getElementById("engineeringWorkspace");
+
+    const badge =
+        document.getElementById("engineeringBadge");
+
+    if(engineeringMode){
+
+        dashboard.style.display = "none";
+
+        workspace.classList.add("active");
+
+        badge.classList.add("active");
+
+        engineeringButton.textContent = "🔓";
+
+    }
+    else{
+
+        dashboard.style.display = "block";
+
+        workspace.classList.remove("active");
+
+        badge.classList.remove("active");
+
+        engineeringButton.textContent = "🔒";
+    }
 }
+document.getElementById("exitEngineeringButton").addEventListener("click",()=>{
+    if(engineeringMode){
+        toggleEngineeringMode();
+    }
+});
+//runtime data inspector
+const bufferHistoryButton=document.getElementById("bufferHistoryButton");
+const bitrateHistoryButton=document.getElementById("bitrateHistoryButton");
+const networkLogsButton=document.getElementById("networkLogsButton");
+const networkSummaryButton=document.getElementById("networkSummaryButton");
+const runtimeViewerTitle=document.getElementById("runtimeViewerTitle");
+const runtimeRecordCount=document.getElementById("runtimeRecordCount");
+const runtimeDataOutput=document.getElementById("runtimeDataOutput");
+const runtimeDataStatus=document.getElementById("runtimeDataStatus");
+let selectedRuntimeData=null;
+
+//select runtime data source
+function selectRuntimeData(source){
+    selectedRuntimeData = source;
+    document.querySelectorAll(".runtime-data-button")
+            .forEach(function(button){
+                button.classList.remove("active");
+            });
+    if(source==="bufferHistory"){
+        bufferHistoryButton.classList.add("active");
+    }
+    if(source==="bitrateHistory"){
+        bitrateHistoryButton.classList.add("active");
+    }
+    if(source==="networkLogs"){
+        networkLogsButton.classList.add("active");
+    }
+    if(source==="networkSummary"){
+        networkSummaryButton.classList.add("active");
+    }
+    updateRutimeDataViewer();
+}
+//update viewer
+function updateRutimeDataViewer(){
+    if(!selectedRuntimeData){
+        return;
+    }
+    let data;
+    let title;
+    let count;
+    if(selectedRuntimeData==="bufferHistory"){
+        data=bufferHistory;
+        title="bufferHistory";
+        count=bufferHistory.length;
+    }
+    if(selectedRuntimeData==="bitrateHistory"){
+        data=bitrateHistory;
+        title="bitrateHistory";
+        count=bitrateHistory.length;
+    }
+    if(selectedRuntimeData==="networkLogs"){
+        data=networkLogs;
+        title="networkLogs";
+        count=networkLogs.length;
+    }
+    if(selectedRuntimeData==="networkSummary"){
+        data=getNetworkSummary();
+        title="getNetworkSummary()";
+        count=Object.keys(data).length;
+    }
+    runtimeViewerTitle.textContent=title;
+    if(selectedRuntimeData==="networkSummary"){
+        runtimeRecordCount.textContent=count+" metrics";
+    }
+    else{
+        runtimeRecordCount.textContent=count+" records";
+    }
+    runtimeDataOutput.innerHTML="";
+    const output=document.createElement("pre");
+    output.textContent=JSON.stringify(data,null,2);
+    runtimeDataOutput.appendChild(output);
+
+    //show data is still alive
+    if(playbackSession && !video.paused && !video.ended){
+        runtimeDataStatus.textContent="LIVE";
+    }
+    else if(playbackSession){
+        runtimeDataStatus.textContent="SESSION";
+    }
+    else{
+        runtimeDataStatus.textContent="NO SESSION";
+    }
+}
+//Button events
+bufferHistoryButton.addEventListener("click",function(){
+    selectRuntimeData("bufferHistory");
+});
+bitrateHistoryButton.addEventListener("click",function(){
+    selectRuntimeData("bitrateHistory");
+});
+networkLogsButton.addEventListener("click",function(){
+    selectRuntimeData("networkLogs");
+});
+networkSummaryButton.addEventListener("click",function(){
+    selectRuntimeData("networkSummary");
+});
+//Refresh selected data while playback is running
+setInterval(function(){
+    if(selectedRuntimeData){
+        updateRutimeDataViewer();
+    }
+},1000);
+
