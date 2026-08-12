@@ -410,11 +410,9 @@ Potential future extensions include:
 
 **Namratha V Naik**
 
-Information Science & Engineering  
-Global Academy of Technology
+Graduate in Information Science & Engineering
 
-Software Engineering • Streaming Technologies • Web Development
-
+Software Engineer • AI/ML Engineer • Streaming Technologies • Web Development
 ---
 
 <p align="center">
