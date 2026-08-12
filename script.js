@@ -972,6 +972,10 @@ function toggleEngineeringMode(){
         dashboard.style.display = "none";
 
         workspace.classList.add("active");
+        const videoPlayer=document.getElementById("videoPlayer");
+        const miniVideoContainer=document.getElementById("miniVideoContainer");
+        miniVideoContainer.appendChild(videoPlayer);
+        videoPlayer.classList.add("engineering-mini-video");
 
         badge.classList.add("active");
 
@@ -979,7 +983,10 @@ function toggleEngineeringMode(){
 
     }
     else{
-
+        const videoPlayer=document.getElementById("videoPlayer");
+        const videoContainer=document.getElementById("VideoContainer");
+        videoContainer.insertBefore(videoPlayer,videoContainer.firstChild);
+        videoPlayer.classList.remove("engineering-mini-video");
         dashboard.style.display = "block";
 
         workspace.classList.remove("active");
