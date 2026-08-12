@@ -606,8 +606,9 @@ button:hover{
 
 #engineeringWorkspace .engineering-content {
     display: grid;
-    grid-template-columns: 2fr 420px;
+    grid-template-columns: minmax(0, 1fr) 380px;
     gap: 25px;
+    align-items: start;
 }
 
 #engineeringWorkspace .engineering-card {
@@ -623,7 +624,7 @@ button:hover{
 }
 /*runtime data inspector*/
 .runtime-inspector{
-    min-height: 600px;
+    min-height: 0;
 }
 .runtime-inspector-header{
     display: flex;
@@ -717,4 +718,11 @@ button:hover{
     color: #64748B;
     font-size: 14px;
     text-align: center;
+}
+.engineering-left,
+.engineering-right{
+    min-width: 0;
+}
+.engineering-right{
+    align-self: start;
 }

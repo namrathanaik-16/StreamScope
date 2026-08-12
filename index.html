@@ -254,44 +254,46 @@
     <div class="engineering-content">
         <div class="engineering-left">
             <div class="engineering-card runtime-inspector">
-                <div>
-                    <h2>Runtime Data Inspector</h2>
-                    <p>Inspect live and completed session data</p>
-                </div>
-                <span id="runtimeDataStatus">
-                    LIVE
-                </span>
-            </div>
-            <div class="runtime-data-buttons">
-                <button id="bufferHistoryButton" class="runtime-data-button">
-                    bufferHistory
-                </button>
-                <button id="bitrateHistoryButton" class="runtime-data-button">
-                    bitrateHistory
-                </button>
-                <button id="networkLogsButton" class="runtime-data-button">
-                    networkLogs
-                </button>
-                <button id="networkSummaryButton" class="runtime-data-button">
-                    getNetworkSummary()
-                </button>
-            </div> 
-            <div class="runtime-data-viewer">
-                <div class="runtime-viewer-header">
-                    <h3 id="runtimeViewerTitle">
-                        Select a data source
-                    </h3>
-                    <span id="runtimeRecordCount">
-                        0 records
+                <div class="runtime-inspector-header">
+                    <div class="runtime-inspector-title">
+                        <h2>Runtime Data Inspector</h2>
+                        <p>Inspect live and completed session data</p>
+                    </div>
+                    <span id="runtimeDataStatus">
+                        LIVE
                     </span>
                 </div>
-                <div id="runtimeDataOutput">
-                    <div class="runtime-empty">
-                        Select a runtime data source above
+                <div class="runtime-data-buttons">
+                    <button id="bufferHistoryButton" class="runtime-data-button">
+                        bufferHistory
+                    </button>
+                    <button id="bitrateHistoryButton" class="runtime-data-button">
+                        bitrateHistory
+                    </button>
+                    <button id="networkLogsButton" class="runtime-data-button">
+                        networkLogs
+                    </button>
+                    <button id="networkSummaryButton" class="runtime-data-button">
+                        getNetworkSummary()
+                    </button>
+                </div>
+                <div class="runtime-data-viewer">
+                    <div class="runtime-viewer-header">
+                        <h3 id="runtimeViewerTitle">
+                            Select a data source
+                        </h3>
+                        <span id="runtimeRecordCount">
+                            0 records
+                        </span>
+                    </div>
+                    <div id="runtimeDataOutput">
+                        <div class="runtime-empty">
+                            Select a runtime data source above
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         <div class="engineering-right">
             <div id="miniVideoContainer">
 
